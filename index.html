@@ -1032,169 +1032,153 @@
     </div>
   </div>
 
-  <script>
-    const dayCards = document.querySelectorAll('.day-card');
+<script>
+  const dayCards = document.querySelectorAll('.day-card');
+  const pills = document.querySelectorAll('.pill[data-target]');
+  const nextButtons = document.querySelectorAll('.next-day-btn');
+  const headerOffset = 90; // juster hvis du vil ha den litt høyere/lavere
 
-    function closeAllExcept(cardToKeep) {
-      dayCards.forEach(card => {
-        if (card !== cardToKeep) {
-          card.classList.remove('open');
-          const body = card.querySelector('.day-body');
-          if (body) body.style.maxHeight = null;
-        }
-      });
-    }
-
-    // Accordion-logikk for dag-boksene
+  function closeAllExcept(cardToKeep) {
     dayCards.forEach(card => {
-      const header = card.querySelector('.day-header');
-      const body = card.querySelector('.day-body');
-
-      header.addEventListener('click', () => {
-        const isOpen = card.classList.contains('open');
-
-        if (!isOpen) {
-          // åpne valgt dag
-          closeAllExcept(card);
-          card.classList.add('open');
-          body.style.maxHeight = body.scrollHeight + 'px';
-
-          const headerOffset = 90;
-          setTimeout(() => {
-            const rect = card.getBoundingClientRect();
-            const offset = rect.top + window.scrollY - headerOffset;
-
-            window.scrollTo({
-              top: offset,
-              behavior: 'smooth'
-            });
-          }, 80);
-        } else {
-          // lukke dag: fjern aktiv pill + scroll til topp
-          card.classList.remove('open');
-          body.style.maxHeight = null;
-
-          document.querySelectorAll('.pill[data-target]').forEach(p => {
-            p.classList.remove('active');
-          });
-
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Klikk på mini-rute-pill -> scroll + åpne riktig dag + marker valgt
-    const pills = document.querySelectorAll('.pill[data-target]');
-
-    pills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        const targetId = pill.getAttribute('data-target');
-        const card = document.getElementById(targetId);
-        if (!card) return;
-
+      if (card !== cardToKeep) {
+        card.classList.remove('open');
         const body = card.querySelector('.day-body');
-        if (!body) return;
-
-        // marker aktiv pill
-        pills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-
-        // åpne denne, lukk andre
-        const isOpen = card.classList.contains('open');
-        if (!isOpen) {
-          closeAllExcept(card);
-          card.classList.add('open');
-          body.style.maxHeight = body.scrollHeight + 'px';
-        }
-
-        // liten delay så layout rekker å oppdatere før vi scroller
-        const headerOffset = 90;
-        setTimeout(() => {
-          const rect = card.getBoundingClientRect();
-          const offset = rect.top + window.scrollY - headerOffset;
-
-          window.scrollTo({
-            top: offset,
-            behavior: 'smooth'
-          });
-        }, 80);
-      });
+        if (body) body.style.maxHeight = null;
+      }
     });
+  }
 
-    // Neste dag-knapper
-    const nextButtons = document.querySelectorAll('.next-day-btn');
+  function scrollCardIntoView(card) {
+    setTimeout(() => {
+      const rect = card.getBoundingClientRect();
+      const offset = rect.top + window.scrollY - headerOffset;
 
-    nextButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const nextId = btn.getAttribute('data-next');
-        if (!nextId) return;
+      window.scrollTo({
+        top: offset,
+        behavior: 'smooth'
+      });
+    }, 80);
+  }
 
-        const nextCard = document.getElementById(nextId);
-        if (!nextCard) return;
+  // Accordion-logikk for dag-boksene (klikk på header)
+  dayCards.forEach(card => {
+    const header = card.querySelector('.day-header');
+    const body = card.querySelector('.day-body');
 
-        const body = nextCard.querySelector('.day-body');
-        if (!body) return;
+    header.addEventListener('click', () => {
+      const isOpen = card.classList.contains('open');
 
-        closeAllExcept(nextCard);
-        nextCard.classList.add('open');
+      if (!isOpen) {
+        // åpne valgt dag
+        closeAllExcept(card);
+        card.classList.add('open');
         body.style.maxHeight = body.scrollHeight + 'px';
 
-        const targetPill = document.querySelector('.pill[data-target="' + nextId + '"]');
-        if (targetPill) {
-          pills.forEach(p => p.classList.remove('active'));
-          targetPill.classList.add('active');
-        }
+        // nullstill aktiv pill (vi vet ikke om det kom via minirute eller ei)
+        pills.forEach(p => p.classList.remove('active'));
 
-        const headerOffset = 90;
-        setTimeout(() => {
-          const rect = nextCard.getBoundingClientRect();
-          const offset = rect.top + window.scrollY - headerOffset;
+        // scroll slik at dagen legger seg pent under headeren
+        scrollCardIntoView(card);
+      } else {
+        // lukke dag: fjern aktiv pill + scroll til topp
+        card.classList.remove('open');
+        body.style.maxHeight = null;
 
-          window.scrollTo({
-            top: offset,
-            behavior: 'smooth'
-          });
-        }, 80);
-      });
+        pills.forEach(p => p.classList.remove('active'));
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
     });
+  });
 
-    // Lightbox for dagsbilder
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxClose = document.querySelector('.lightbox-close');
+  // Klikk på mini-rute-pill -> scroll + åpne riktig dag + marker valgt
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const targetId = pill.getAttribute('data-target');
+      const card = document.getElementById(targetId);
+      if (!card) return;
 
-    document.querySelectorAll('.day-image img').forEach(img => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt || 'Dagsbilde';
-        lightbox.classList.add('open');
-      });
+      const body = card.querySelector('.day-body');
+      if (!body) return;
+
+      // marker aktiv pill
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      // åpne denne, lukk andre
+      const isOpen = card.classList.contains('open');
+      if (!isOpen) {
+        closeAllExcept(card);
+        card.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+
+      // scroll til valgt dag
+      scrollCardIntoView(card);
     });
+  });
 
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      lightboxImg.src = '';
+  // Neste dag-knapper
+  nextButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const nextId = btn.getAttribute('data-next');
+      if (!nextId) return;
+
+      const nextCard = document.getElementById(nextId);
+      if (!nextCard) return;
+
+      const body = nextCard.querySelector('.day-body');
+      if (!body) return;
+
+      closeAllExcept(nextCard);
+      nextCard.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+
+      const targetPill = document.querySelector('.pill[data-target="' + nextId + '"]');
+      if (targetPill) {
+        pills.forEach(p => p.classList.remove('active'));
+        targetPill.classList.add('active');
+      }
+
+      scrollCardIntoView(nextCard);
+    });
+  });
+
+  // Lightbox for dagsbilder
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.querySelector('.lightbox-close');
+
+  document.querySelectorAll('.day-image img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || 'Dagsbilde';
+      lightbox.classList.add('open');
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
     }
+  });
 
-    lightboxClose.addEventListener('click', closeLightbox);
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
-        closeLightbox();
-      }
-    });
-
-     
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
 
   // Service worker-registrering for offline-cache / PWA
   if ('serviceWorker' in navigator) {
@@ -1206,7 +1190,6 @@
         });
     });
   }
-
-  </script>
+</script>
 </body>
 </html>
