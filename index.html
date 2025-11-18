@@ -1856,15 +1856,12 @@
           body.style.maxHeight = body.scrollHeight + 'px';
           pills.forEach(p => p.classList.remove('active'));
           scrollCardIntoView(card);
-        } else {
-          card.classList.remove('open');
-          body.style.maxHeight = null;
-          pills.forEach(p => p.classList.remove('active'));
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        }
+    } else {
+      card.classList.remove('open');
+      body.style.maxHeight = null;
+      pills.forEach(p => p.classList.remove('active'));
+      // Ingen scroll her – la brukeren bli der de er
+    }
       });
     });
 
