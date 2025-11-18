@@ -505,6 +505,24 @@
       background: rgba(255,178,47,0.16);
     }
 
+  .prev-day-btn {
+      margin-top: 0.3rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(255,178,47,0.08);
+      color: var(--accent);
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .prev-day-btn:hover {
+      background: rgba(255,178,47,0.16);
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 1rem 1.2rem 2rem;
@@ -614,346 +632,371 @@
       </div>
     </section>
 
-    <section class="section" id="days">
-      <h2>Dag for dag – klikk for detaljer</h2>
-      <p>Klikk på en dag for å se plan, ca. pris og kart. Bilder vises når boksen åpnes.</p>
+<section class="section" id="days">
+  <h2>Dag for dag – klikk for detaljer</h2>
+  <p>Klikk på en dag for å se plan, ca. pris og kart. Bilder vises når boksen åpnes.</p>
 
-      <div class="day-list">
-        <!-- Dag 1 -->
-        <article class="day-card" id="day-1">
-          <button class="day-header" type="button">
-            <div class="day-header-main">
-              <div class="day-title">Dag 1 – Notodden → Larvik → Hirtshals → Hamburg</div>
-              <div class="day-meta">Ca. 7–8 t + ferge • Første kveld i Hamburg</div>
-            </div>
-            <div class="day-chevron">▼</div>
-          </button>
-          <div class="day-body">
-            <div class="day-body-inner">
-              <div class="day-image">
-                <!-- Bytt filnavn til ditt eget bilde -->
-                <img src="images/day1-hamburg.jpg" alt="Dag 1 – Hamburg">
-              </div>
-              <p><strong>Plan:</strong></p>
-              <ul>
-                <li>Avreise fra Notodden på morgenen.</li>
-                <li>Ferge fra Larvik til Hirtshals.</li>
-                <li>Kjøring gjennom Danmark til Hamburg.</li>
-                <li>Innsjekk, enkel middag og et par øl.</li>
-              </ul>
-              <p><strong>Ca. kost (per pers, ekskl. fergebillett):</strong>  
-                Overnatting ~800–900 kr • Mat/øl ~400 kr.
-              </p>
-              <p class="maps-link">
-                Maps:
-                <a href="https://www.google.com/maps/dir/Notodden/Larvik+ferjekai/" target="_blank">Notodden → Larvik</a>,
-                <a href="https://www.google.com/maps/dir/Hirtshals/Hamburg/" target="_blank">Hirtshals → Hamburg</a>
-              </p>
-              <button type="button" class="next-day-btn" data-next="day-2">
-                Neste dag → Dag 2 – Praha
-              </button>
-            </div>
+  <div class="day-list">
+    <!-- Dag 1 -->
+    <article class="day-card" id="day-1">
+      <button class="day-header" type="button">
+        <div class="day-header-main">
+          <div class="day-title">Dag 1 – Notodden → Larvik → Hirtshals → Hamburg</div>
+          <div class="day-meta">Ca. 7–8 t + ferge • Første kveld i Hamburg</div>
+        </div>
+        <div class="day-chevron">▼</div>
+      </button>
+      <div class="day-body">
+        <div class="day-body-inner">
+          <div class="day-image">
+            <img src="images/day1-hamburg.jpg" alt="Dag 1 – Hamburg">
           </div>
-        </article>
-
-        <!-- Dag 2 -->
-        <article class="day-card" id="day-2">
-          <button class="day-header" type="button">
-            <div class="day-header-main">
-              <div class="day-title">Dag 2 – Hamburg → Praha</div>
-              <div class="day-meta">Ca. 6–7 t • Kveld i Praha</div>
-            </div>
-            <div class="day-chevron">▼</div>
+          <p><strong>Plan:</strong></p>
+          <ul>
+            <li>Avreise fra Notodden på morgenen.</li>
+            <li>Ferge fra Larvik til Hirtshals.</li>
+            <li>Kjøring gjennom Danmark til Hamburg.</li>
+            <li>Innsjekk, enkel middag og et par øl.</li>
+          </ul>
+          <p><strong>Ca. kost (per pers, ekskl. fergebillett):</strong>  
+            Overnatting ~800–900 kr • Mat/øl ~400 kr.
+          </p>
+          <p class="maps-link">
+            Maps:
+            <a href="https://www.google.com/maps/dir/Notodden/Larvik+ferjekai/" target="_blank">Notodden → Larvik</a>,
+            <a href="https://www.google.com/maps/dir/Hirtshals/Hamburg/" target="_blank">Hirtshals → Hamburg</a>
+          </p>
+          <button type="button" class="next-day-btn" data-next="day-2">
+            Neste dag → Dag 2 – Praha
           </button>
-          <div class="day-body">
-            <div class="day-body-inner">
-              <div class="day-image">
-                <img src="images/day2-praha.jpg" alt="Dag 2 – Praha">
-              </div>
-              <p><strong>Plan:</strong></p>
-              <ul>
-                <li>Kjøring ned gjennom Tyskland og Tsjekkia.</li>
-                <li>Ankomst Praha på ettermiddagen/tidlig kveld.</li>
-                <li>Kveld i gamlebyen, mat og øl.</li>
-              </ul>
-              <p><strong>Ca. kost (per pers):</strong>  
-                Overnatting ~600–700 kr • Mat/øl ~400 kr.
-              </p>
-              <p class="maps-link">
-                Maps:
-                <a href="https://www.google.com/maps/dir/Hamburg/Praha/" target="_blank">Hamburg → Praha</a>
-              </p>
-              <button type="button" class="next-day-btn" data-next="day-3">
-                Neste dag → Dag 3 – Ankomst Nova Rock
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Dag 3 -->
-        <article class="day-card" id="day-3">
-          <button class="day-header" type="button">
-            <div class="day-header-main">
-              <div class="day-title">Dag 3 – Praha → Nova Rock (Nickelsdorf)</div>
-              <div class="day-meta">Ca. 3,5–4 t • Ankomst camp</div>
-            </div>
-            <div class="day-chevron">▼</div>
-          </button>
-          <div class="day-body">
-            <div class="day-body-inner">
-              <div class="day-image">
-                <img src="images/day3-novarock-arrival.jpg" alt="Dag 3 – Nova Rock camp">
-              </div>
-              <p><strong>Plan:</strong></p>
-              <ul>
-                <li>Tidlig avgang fra Praha.</li>
-                <li>Handle inn det siste på veien.</li>
-                <li>Ankomst Nova Rock-området på ettermiddagen/kvelden.</li>
-                <li>Sette opp camp og rolig start.</li>
-              </ul>
-              <p><strong>Ca. kost (per pers):</strong>  
-                Mest mat/øl denne dagen ~400–500 kr.
-              </p>
-              <p class="maps-link">
-                Maps:
-                <a href="https://www.google.com/maps/dir/Prague/Nickelsdorf+Austria/" target="_blank">Praha → Nickelsdorf</a>
-              </p>
-              <button type="button" class="next-day-btn" data-next="day-novarock">
-                Neste dag → Dag 4–7 – Nova Rock
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Dag 4–7 – Nova Rock -->
-        <article class="day-card" id="day-novarock">
-          <button class="day-header" type="button">
-            <div class="day-header-main">
-              <div class="day-title">Dag 4–7 – Nova Rock</div>
-              <div class="day-meta">4 dager • Full festivalmodus</div>
-            </div>
-            <div class="day-chevron">▼</div>
-          </button>
-          <div class="day-body">
-            <div class="day-body-inner">
-              <div class="day-image">
-                <img src="images/day4-7-novarock.jpg" alt="Dag 4–7 – Nova Rock">
-              </div>
-              <p><strong>Plan:</strong> Camp, konserter, øl, minimalt med bil.</p>
-              <p><strong>Ca. kost (per pers, pr. dag):</strong>  
-                1 200–1 500 kr (mat + drikke, 12–15 halvlitere typisk).
-              </p>
-              <p>Totalt 4 dager: ca. 4 800–6 000 kr per pers (uten billetter).</p>
-              <button type="button" class="next-day-btn" data-next="day-zakopane">
-                Neste dag → Dag 8 – Zakopane
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Dag 8 – Zakopane -->
-        <article class="day-card" id="day-zakopane">
-          <button class="day-header" type="button">
-            <div class="day-header-main">
-              <div class="day-title">Dag 8 – Nova Rock → Zakopane</div>
-              <div class="day-meta">Ca. 4,5–5 t • Fjell og roligere tempo</div>
-            </div>
-            <div class="day-chevron">▼</div>
-          </button>
-          <div class="day-body">
-            <div class="day-body-inner">
-              <div class="day-image">
-                <img src="images/day8-zakopane.jpg" alt="Dag 8 – Zakopane">
-              </div>
-              <p><strong>Plan:</strong></p>
-              <ul>
-                <li>Pakk ned camp, kjør gjennom Slovakia/Polen.</li>
-                <li>Innsjekk i Zakopane.</li>
-                <li>Mat, øl og evt. kveldstur.</li>
-              </ul>
-              <p><strong>Severdigheter:</strong>  
-                Gubałówka fjellheis/utsikt ~150 kr per pers.
-              </p>
-              <p><strong>Ca. kost (per pers):</strong>  
-                Overnatting ~600–700 kr • Mat/øl ~400 kr • Severdigheter ~150 kr.
-              </p>
-              <p class="maps-link">
-                Maps:
-                <a href="https://www.google.com/maps/dir/Nickelsdorf/Zakopane/" target="_blank">Nova Rock → Zakopane</a>
-              </p>
-              <button type="button" class="next-day-btn" data-next="day-krakow">
-                Neste dag → Dag 9 – Kraków &amp; Wieliczka
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Dag 9 – Kraków/Wieliczka -->
-        <article class="day-card" id="day-krakow">
-          <button class="day-header" type="button">
-            <div class="day-header-main">
-              <div class="day-title">Dag 9 – Zakopane → Kraków → Wieliczka → Kraków</div>
-              <div class="day-meta">Ca. 1,5 t + 20 min • By + gruve</div>
-            </div>
-            <div class="day-chevron">▼</div>
-          </button>
-          <div class="day-body">
-            <div class="day-body-inner">
-              <div class="day-image">
-                <img src="images/day9-krakow-wieliczka.jpg" alt="Dag 9 – Kraków og Wieliczka">
-              </div>
-              <p><strong>Plan:</strong></p>
-              <ul>
-                <li>Kjør fra Zakopane til Kraków, sjekke inn.</li>
-                <li>Videre til Wieliczka saltgruve.</li>
-                <li>Kveld i Kazimierz-området med mat og øl.</li>
-              </ul>
-              <p><strong>Severdigheter:</strong>  
-                Wieliczka saltgruve ~350–450 kr per pers.
-              </p>
-              <p><strong>Ca. kost (per pers):</strong>  
-                Overnatting ~600–700 kr • Mat/øl ~400 kr • Severdigheter ~400 kr.
-              </p>
-              <p class="maps-link">
-                Maps:
-                <a href="https://www.google.com/maps/dir/Zakopane/Kraków/" target="_blank">Zakopane → Kraków</a>,
-                <a href="https://www.google.com/maps/dir/Kraków/Wieliczka+Salt+Mine/" target="_blank">Kraków → Wieliczka</a>
-              </p>
-              <button type="button" class="next-day-btn" data-next="day-lublin">
-                Neste dag → Dag 10 – Lublin
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Dag 10 – Lublin -->
-        <article class="day-card" id="day-lublin">
-          <button class="day-header" type="button">
-            <div class="day-header-main">
-              <div class="day-title">Dag 10 – Kraków → Lublin</div>
-              <div class="day-meta">Ca. 3 t • Rolig overgangsdag</div>
-            </div>
-            <div class="day-chevron">▼</div>
-          </button>
-          <div class="day-body">
-            <div class="day-body-inner">
-              <div class="day-image">
-                <img src="images/day10-lublin.jpg" alt="Dag 10 – Lublin">
-              </div>
-              <p><strong>Plan:</strong></p>
-              <ul>
-                <li>Kjøring til Lublin.</li>
-                <li>Innsjekk og rusling i gamlebyen.</li>
-              </ul>
-              <p><strong>Ca. kost (per pers):</strong>  
-                Overnatting ~500–600 kr • Mat/øl ~350–400 kr.
-              </p>
-              <p class="maps-link">
-                Maps:
-                <a href="https://www.google.com/maps/dir/Kraków/Lublin/" target="_blank">Kraków → Lublin</a>
-              </p>
-              <button type="button" class="next-day-btn" data-next="day-warszawa">
-                Neste dag → Dag 11 – Warszawa
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Dag 11 – Warszawa -->
-        <article class="day-card" id="day-warszawa">
-          <button class="day-header" type="button">
-            <div class="day-header-main">
-              <div class="day-title">Dag 11 – Lublin → Warszawa</div>
-              <div class="day-meta">Ca. 1,5–2 t • Inn til hovedstaden</div>
-            </div>
-            <div class="day-chevron">▼</div>
-          </button>
-          <div class="day-body">
-            <div class="day-body-inner">
-              <div class="day-image">
-                <img src="images/day11-warszawa.jpg" alt="Dag 11 – Warszawa">
-              </div>
-              <p><strong>Plan:</strong></p>
-              <ul>
-                <li>Kort kjøreøkt til Warszawa.</li>
-                <li>Sjekk inn tidlig.</li>
-                <li>Wisła-barer, gamlebyen, mat, chill.</li>
-              </ul>
-              <p><strong>Ca. kost (per pers):</strong>  
-                Overnatting ~700–800 kr • Mat/øl ~400 kr.
-              </p>
-              <p class="maps-link">
-                Maps:
-                <a href="https://www.google.com/maps/dir/Lublin/Warszawa/" target="_blank">Lublin → Warszawa</a>
-              </p>
-              <button type="button" class="next-day-btn" data-next="day-12-13">
-                Neste dag → Dag 12–13 – Warszawa / festival
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Dag 12–13 – Warszawa/festival -->
-        <article class="day-card" id="day-12-13">
-          <button class="day-header" type="button">
-            <div class="day-header-main">
-              <div class="day-title">Dag 12–13 – Warszawa / Summer Punch</div>
-              <div class="day-meta">2 dager • Festival / byliv</div>
-            </div>
-            <div class="day-chevron">▼</div>
-          </button>
-          <div class="day-body">
-            <div class="day-body-inner">
-              <div class="day-image">
-                <img src="images/day12-13-warszawa-festival.jpg" alt="Dag 12–13 – Warszawa / festival">
-              </div>
-              <p><strong>Plan:</strong> Enten Summer Punch-festival, eller to dager med byliv, barer og sightseeing.</p>
-              <p><strong>Ca. kost (per pers, pr. dag):</strong>  
-                ~1 200–1 500 kr (mat + drikke, festivalnivå).
-              </p>
-              <button type="button" class="next-day-btn" data-next="day-home">
-                Neste dag → Dag 14 – Hjemreise
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Dag 14 – hjem -->
-        <article class="day-card" id="day-home">
-          <button class="day-header" type="button">
-            <div class="day-header-main">
-              <div class="day-title">Dag 14 – Warszawa → Świnoujście → Ystad → Göteborg → Notodden</div>
-              <div class="day-meta">Ca. 10–12 t kjøring • Ferge + hjem</div>
-            </div>
-            <div class="day-chevron">▼</div>
-          </button>
-          <div class="day-body">
-            <div class="day-body-inner">
-              <div class="day-image">
-                <img src="images/day14-home.jpg" alt="Dag 14 – Hjem via Sverige">
-              </div>
-              <p><strong>Plan:</strong></p>
-              <ul>
-                <li>Kjøring mot kysten og Świnoujście.</li>
-                <li>Nattferge til Sverige.</li>
-                <li>Ystad → Göteborg langs kysten.</li>
-                <li>Siste strekk hjem til Notodden.</li>
-              </ul>
-              <p><strong>Ca. kost (per pers):</strong>  
-                Andel ferge/kahytt ~750 kr • Mat/øl ~400 kr.
-              </p>
-              <p class="maps-link">
-                Maps:
-                <a href="https://www.google.com/maps/dir/Warszawa/Świnoujście/" target="_blank">Warszawa → Świnoujście</a>,
-                <a href="https://www.google.com/maps/dir/Ystad/Göteborg/" target="_blank">Ystad → Göteborg</a>,
-                <a href="https://www.google.com/maps/dir/Göteborg/Notodden/" target="_blank">Göteborg → Notodden</a>
-              </p>
-            </div>
-          </div>
-        </article>
+        </div>
       </div>
-    </section>
+    </article>
 
+    <!-- Dag 2 -->
+    <article class="day-card" id="day-2">
+      <button class="day-header" type="button">
+        <div class="day-header-main">
+          <div class="day-title">Dag 2 – Hamburg → Praha</div>
+          <div class="day-meta">Ca. 6–7 t • Kveld i Praha</div>
+        </div>
+        <div class="day-chevron">▼</div>
+      </button>
+      <div class="day-body">
+        <div class="day-body-inner">
+          <div class="day-image">
+            <img src="images/day2-praha.jpg" alt="Dag 2 – Praha">
+          </div>
+          <p><strong>Plan:</strong></p>
+          <ul>
+            <li>Kjøring ned gjennom Tyskland og Tsjekkia.</li>
+            <li>Ankomst Praha på ettermiddagen/tidlig kveld.</li>
+            <li>Kveld i gamlebyen, mat og øl.</li>
+          </ul>
+          <p><strong>Ca. kost (per pers):</strong>  
+            Overnatting ~600–700 kr • Mat/øl ~400 kr.
+          </p>
+          <p class="maps-link">
+            Maps:
+            <a href="https://www.google.com/maps/dir/Hamburg/Praha/" target="_blank">Hamburg → Praha</a>
+          </p>
+          <button type="button" class="prev-day-btn" data-prev="day-1">
+            ← Forrige dag – Dag 1
+          </button>
+          <button type="button" class="next-day-btn" data-next="day-3">
+            Neste dag → Dag 3 – Ankomst Nova Rock
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dag 3 -->
+    <article class="day-card" id="day-3">
+      <button class="day-header" type="button">
+        <div class="day-header-main">
+          <div class="day-title">Dag 3 – Praha → Nova Rock (Nickelsdorf)</div>
+          <div class="day-meta">Ca. 3,5–4 t • Ankomst camp</div>
+        </div>
+        <div class="day-chevron">▼</div>
+      </button>
+      <div class="day-body">
+        <div class="day-body-inner">
+          <div class="day-image">
+            <img src="images/day3-novarock-arrival.jpg" alt="Dag 3 – Nova Rock camp">
+          </div>
+          <p><strong>Plan:</strong></p>
+          <ul>
+            <li>Tidlig avgang fra Praha.</li>
+            <li>Handle inn det siste på veien.</li>
+            <li>Ankomst Nova Rock-området på ettermiddagen/kvelden.</li>
+            <li>Sette opp camp og rolig start.</li>
+          </ul>
+          <p><strong>Ca. kost (per pers):</strong>  
+            Mest mat/øl denne dagen ~400–500 kr.
+          </p>
+          <p class="maps-link">
+            Maps:
+            <a href="https://www.google.com/maps/dir/Prague/Nickelsdorf+Austria/" target="_blank">Praha → Nickelsdorf</a>
+          </p>
+          <button type="button" class="prev-day-btn" data-prev="day-2">
+            ← Forrige dag – Dag 2
+          </button>
+          <button type="button" class="next-day-btn" data-next="day-novarock">
+            Neste dag → Dag 4–7 – Nova Rock
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dag 4–7 – Nova Rock -->
+    <article class="day-card" id="day-novarock">
+      <button class="day-header" type="button">
+        <div class="day-header-main">
+          <div class="day-title">Dag 4–7 – Nova Rock</div>
+          <div class="day-meta">4 dager • Full festivalmodus</div>
+        </div>
+        <div class="day-chevron">▼</div>
+      </button>
+      <div class="day-body">
+        <div class="day-body-inner">
+          <div class="day-image">
+            <img src="images/day4-7-novarock.jpg" alt="Dag 4–7 – Nova Rock">
+          </div>
+          <p><strong>Plan:</strong> Camp, konserter, øl, minimalt med bil.</p>
+          <p><strong>Ca. kost (per pers, pr. dag):</strong>  
+            1 200–1 500 kr (mat + drikke, 12–15 halvlitere typisk).
+          </p>
+          <p>Totalt 4 dager: ca. 4 800–6 000 kr per pers (uten billetter).</p>
+          <button type="button" class="prev-day-btn" data-prev="day-3">
+            ← Forrige dag – Dag 3
+          </button>
+          <button type="button" class="next-day-btn" data-next="day-zakopane">
+            Neste dag → Dag 8 – Zakopane
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dag 8 – Zakopane -->
+    <article class="day-card" id="day-zakopane">
+      <button class="day-header" type="button">
+        <div class="day-header-main">
+          <div class="day-title">Dag 8 – Nova Rock → Zakopane</div>
+          <div class="day-meta">Ca. 4,5–5 t • Fjell og roligere tempo</div>
+        </div>
+        <div class="day-chevron">▼</div>
+      </button>
+      <div class="day-body">
+        <div class="day-body-inner">
+          <div class="day-image">
+            <img src="images/day8-zakopane.jpg" alt="Dag 8 – Zakopane">
+          </div>
+          <p><strong>Plan:</strong></p>
+          <ul>
+            <li>Pakk ned camp, kjør gjennom Slovakia/Polen.</li>
+            <li>Innsjekk i Zakopane.</li>
+            <li>Mat, øl og evt. kveldstur.</li>
+          </ul>
+          <p><strong>Severdigheter:</strong>  
+            Gubałówka fjellheis/utsikt ~150 kr per pers.
+          </p>
+          <p><strong>Ca. kost (per pers):</strong>  
+            Overnatting ~600–700 kr • Mat/øl ~400 kr • Severdigheter ~150 kr.
+          </p>
+          <p class="maps-link">
+            Maps:
+            <a href="https://www.google.com/maps/dir/Nickelsdorf/Zakopane/" target="_blank">Nova Rock → Zakopane</a>
+          </p>
+          <button type="button" class="prev-day-btn" data-prev="day-novarock">
+            ← Forrige dag – Dag 4–7
+          </button>
+          <button type="button" class="next-day-btn" data-next="day-krakow">
+            Neste dag → Dag 9 – Kraków &amp; Wieliczka
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dag 9 – Kraków/Wieliczka -->
+    <article class="day-card" id="day-krakow">
+      <button class="day-header" type="button">
+        <div class="day-header-main">
+          <div class="day-title">Dag 9 – Zakopane → Kraków → Wieliczka → Kraków</div>
+          <div class="day-meta">Ca. 1,5 t + 20 min • By + gruve</div>
+        </div>
+        <div class="day-chevron">▼</div>
+      </button>
+      <div class="day-body">
+        <div class="day-body-inner">
+          <div class="day-image">
+            <img src="images/day9-krakow-wieliczka.jpg" alt="Dag 9 – Kraków og Wieliczka">
+          </div>
+          <p><strong>Plan:</strong></p>
+          <ul>
+            <li>Kjør fra Zakopane til Kraków, sjekke inn.</li>
+            <li>Videre til Wieliczka saltgruve.</li>
+            <li>Kveld i Kazimierz-området med mat og øl.</li>
+          </ul>
+          <p><strong>Severdigheter:</strong>  
+            Wieliczka saltgruve ~350–450 kr per pers.
+          </p>
+          <p><strong>Ca. kost (per pers):</strong>  
+            Overnatting ~600–700 kr • Mat/øl ~400 kr • Severdigheter ~400 kr.
+          </p>
+          <p class="maps-link">
+            Maps:
+            <a href="https://www.google.com/maps/dir/Zakopane/Kraków/" target="_blank">Zakopane → Kraków</a>,
+            <a href="https://www.google.com/maps/dir/Kraków/Wieliczka+Salt+Mine/" target="_blank">Kraków → Wieliczka</a>
+          </p>
+          <button type="button" class="prev-day-btn" data-prev="day-zakopane">
+            ← Forrige dag – Dag 8
+          </button>
+          <button type="button" class="next-day-btn" data-next="day-lublin">
+            Neste dag → Dag 10 – Lublin
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dag 10 – Lublin -->
+    <article class="day-card" id="day-lublin">
+      <button class="day-header" type="button">
+        <div class="day-header-main">
+          <div class="day-title">Dag 10 – Kraków → Lublin</div>
+          <div class="day-meta">Ca. 3 t • Rolig overgangsdag</div>
+        </div>
+        <div class="day-chevron">▼</div>
+      </button>
+      <div class="day-body">
+        <div class="day-body-inner">
+          <div class="day-image">
+            <img src="images/day10-lublin.jpg" alt="Dag 10 – Lublin">
+          </div>
+          <p><strong>Plan:</strong></p>
+          <ul>
+            <li>Kjøring til Lublin.</li>
+            <li>Innsjekk og rusling i gamlebyen.</li>
+          </ul>
+          <p><strong>Ca. kost (per pers):</strong>  
+            Overnatting ~500–600 kr • Mat/øl ~350–400 kr.
+          </p>
+          <p class="maps-link">
+            Maps:
+            <a href="https://www.google.com/maps/dir/Kraków/Lublin/" target="_blank">Kraków → Lublin</a>
+          </p>
+          <button type="button" class="prev-day-btn" data-prev="day-krakow">
+            ← Forrige dag – Dag 9
+          </button>
+          <button type="button" class="next-day-btn" data-next="day-warszawa">
+            Neste dag → Dag 11 – Warszawa
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dag 11 – Warszawa -->
+    <article class="day-card" id="day-warszawa">
+      <button class="day-header" type="button">
+        <div class="day-header-main">
+          <div class="day-title">Dag 11 – Lublin → Warszawa</div>
+          <div class="day-meta">Ca. 1,5–2 t • Inn til hovedstaden</div>
+        </div>
+        <div class="day-chevron">▼</div>
+      </button>
+      <div class="day-body">
+        <div class="day-body-inner">
+          <div class="day-image">
+            <img src="images/day11-warszawa.jpg" alt="Dag 11 – Warszawa">
+          </div>
+          <p><strong>Plan:</strong></p>
+          <ul>
+            <li>Kort kjøreøkt til Warszawa.</li>
+            <li>Sjekk inn tidlig.</li>
+            <li>Wisła-barer, gamlebyen, mat, chill.</li>
+          </ul>
+          <p><strong>Ca. kost (per pers):</strong>  
+            Overnatting ~700–800 kr • Mat/øl ~400 kr.
+          </p>
+          <p class="maps-link">
+            Maps:
+            <a href="https://www.google.com/maps/dir/Lublin/Warszawa/" target="_blank">Lublin → Warszawa</a>
+          </p>
+          <button type="button" class="prev-day-btn" data-prev="day-lublin">
+            ← Forrige dag – Dag 10
+          </button>
+          <button type="button" class="next-day-btn" data-next="day-12-13">
+            Neste dag → Dag 12–13 – Warszawa / festival
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dag 12–13 – Warszawa/festival -->
+    <article class="day-card" id="day-12-13">
+      <button class="day-header" type="button">
+        <div class="day-header-main">
+          <div class="day-title">Dag 12–13 – Warszawa / Summer Punch</div>
+          <div class="day-meta">2 dager • Festival / byliv</div>
+        </div>
+        <div class="day-chevron">▼</div>
+      </button>
+      <div class="day-body">
+        <div class="day-body-inner">
+          <div class="day-image">
+            <img src="images/day12-13-warszawa-festival.jpg" alt="Dag 12–13 – Warszawa / festival">
+          </div>
+          <p><strong>Plan:</strong> Enten Summer Punch-festival, eller to dager med byliv, barer og sightseeing.</p>
+          <p><strong>Ca. kost (per pers, pr. dag):</strong>  
+            ~1 200–1 500 kr (mat + drikke, festivalnivå).
+          </p>
+          <button type="button" class="prev-day-btn" data-prev="day-warszawa">
+            ← Forrige dag – Dag 11
+          </button>
+          <button type="button" class="next-day-btn" data-next="day-home">
+            Neste dag → Dag 14 – Hjemreise
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dag 14 – hjem -->
+    <article class="day-card" id="day-home">
+      <button class="day-header" type="button">
+        <div class="day-header-main">
+          <div class="day-title">Dag 14 – Warszawa → Świnoujście → Ystad → Göteborg → Notodden</div>
+          <div class="day-meta">Ca. 10–12 t kjøring • Ferge + hjem</div>
+        </div>
+        <div class="day-chevron">▼</div>
+      </button>
+      <div class="day-body">
+        <div class="day-body-inner">
+          <div class="day-image">
+            <img src="images/day14-home.jpg" alt="Dag 14 – Hjem via Sverige">
+          </div>
+          <p><strong>Plan:</strong></p>
+          <ul>
+            <li>Kjøring mot kysten og Świnoujście.</li>
+            <li>Nattferge til Sverige.</li>
+            <li>Ystad → Göteborg langs kysten.</li>
+            <li>Siste strekk hjem til Notodden.</li>
+          </ul>
+          <p><strong>Ca. kost (per pers):</strong>  
+            Andel ferge/kahytt ~750 kr • Mat/øl ~400 kr.
+          </p>
+          <p class="maps-link">
+            Maps:
+            <a href="https://www.google.com/maps/dir/Warszawa/Świnoujście/" target="_blank">Warszawa → Świnoujście</a>,
+            <a href="https://www.google.com/maps/dir/Ystad/Göteborg/" target="_blank">Ystad → Göteborg</a>,
+            <a href="https://www.google.com/maps/dir/Göteborg/Notodden/" target="_blank">Göteborg → Notodden</a>
+          </p>
+          <button type="button" class="prev-day-btn" data-prev="day-12-13">
+            ← Forrige dag – Dag 12–13
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
     <section class="section" id="budget">
       <h2>Budsjett – grovt overslag per pers (uten billetter)</h2>
       <p>
@@ -1036,7 +1079,8 @@
   const dayCards = document.querySelectorAll('.day-card');
   const pills = document.querySelectorAll('.pill[data-target]');
   const nextButtons = document.querySelectorAll('.next-day-btn');
-  const headerOffset = 90; // juster hvis du vil ha den litt høyere/lavere
+  const prevButtons = document.querySelectorAll('.prev-day-btn');
+  const headerOffset = 90; // juster hvis du vil ha dagen høyere/lavere på skjermen
 
   function closeAllExcept(cardToKeep) {
     dayCards.forEach(card => {
@@ -1074,7 +1118,7 @@
         card.classList.add('open');
         body.style.maxHeight = body.scrollHeight + 'px';
 
-        // nullstill aktiv pill (vi vet ikke om det kom via minirute eller ei)
+        // nullstill aktiv pill
         pills.forEach(p => p.classList.remove('active'));
 
         // scroll slik at dagen legger seg pent under headeren
@@ -1144,6 +1188,32 @@
       }
 
       scrollCardIntoView(nextCard);
+    });
+  });
+
+  // Forrige dag-knapper
+  prevButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const prevId = btn.getAttribute('data-prev');
+      if (!prevId) return;
+
+      const prevCard = document.getElementById(prevId);
+      if (!prevCard) return;
+
+      const body = prevCard.querySelector('.day-body');
+      if (!body) return;
+
+      closeAllExcept(prevCard);
+      prevCard.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+
+      const targetPill = document.querySelector('.pill[data-target="' + prevId + '"]');
+      if (targetPill) {
+        pills.forEach(p => p.classList.remove('active'));
+        targetPill.classList.add('active');
+      }
+
+      scrollCardIntoView(prevCard);
     });
   });
 
