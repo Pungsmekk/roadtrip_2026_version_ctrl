@@ -1058,6 +1058,17 @@
           closeAllExcept(card);
           card.classList.add('open');
           body.style.maxHeight = body.scrollHeight + 'px';
+
+          const headerOffset = 90;
+          setTimeout(() => {
+            const rect = card.getBoundingClientRect();
+            const offset = rect.top + window.scrollY - headerOffset;
+
+            window.scrollTo({
+              top: offset,
+              behavior: 'smooth'
+            });
+          }, 80);
         } else {
           // lukke dag: fjern aktiv pill + scroll til topp
           card.classList.remove('open');
