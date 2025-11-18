@@ -102,4 +102,29 @@ Egen seksjon for alternativ rute etter Nova Rock:
 - **Struktur:** Alt i `index.html`
 - **Caching:** Service Worker (`sw.js`) med cache-first-strategi
 - **PWA:** `manifest.webmanifest` + icons
-- **Hosting:** GitHub Pages (
+- **Hosting:** GitHub Pages (static hosting)
+
+Det er bevisst ikke brukt noe rammeverk (React, Vue, osv.) for å holde prosjektet
+enkelt å drifte og endre på over tid.
+
+---
+
+## 4. Prosjektstruktur
+
+```text
+roadtrip_2026_version_ctrl/
+├── index.html               # Hele webappen (layout, styling, logikk og innhold)
+├── sw.js                    # Service worker for cache/offline
+├── manifest.webmanifest     # PWA-manifest for ikon, navn, tema osv.
+└── images/                  # Alle bilder brukt på siden
+    ├── camp-beer-pressure-2026-banner.png
+    ├── day1-hamburg.jpg
+    ├── day2-praha.jpg
+    ├── day3-novarock-arrival.jpg
+    ├── day4-7-novarock.jpg
+    ├── day8-zakopane.jpg
+    ├── day9-krakow-wieliczka.jpg
+    ├── day10-lublin.jpg
+    ├── day11-warszawa.jpg
+    ├── day12-13-warszawa-festival.jpg
+    └── day14-home.jpg
