@@ -115,12 +115,12 @@
     }
     
     .nav-links a.active {
-  border-color: var(--accent-soft);
-  background: rgba(255,178,47,0.12);
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-}
+      border-color: var(--accent-soft);
+      background: rgba(255,178,47,0.12);
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
  
     main {
       max-width: 1100px;
@@ -166,6 +166,14 @@
       background: var(--accent-soft);
       color: var(--accent);
       font-size: 0.72rem;
+    }
+
+    .hero-text {
+      padding: 0.9rem 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, rgba(32,35,52,0.95), rgba(17,19,32,0.94));
+      box-shadow: var(--shadow);
     }
 
     .hero-text p {
@@ -214,14 +222,6 @@
       border: 1px solid rgba(255,255,255,0.16);
       color: var(--muted);
     }
-    
-  .hero-text {
-  padding: 0.9rem 1rem;
-  border-radius: 18px;
-  border: 1px solid var(--border);
-  background: radial-gradient(circle at top left, rgba(32,35,52,0.95), rgba(17,19,32,0.94));
-  box-shadow: var(--shadow);
-}
 
     .section {
       margin-top: 2.2rem;
@@ -238,13 +238,12 @@
       max-width: 800px;
     }
 
-    
     .pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.6rem;
-}
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
 
     .pill {
       font-size: 0.78rem;
@@ -274,7 +273,6 @@
       color: var(--text);
     }
 
-    /* aktiv/valgt pill */
     .pill.active {
       border-color: var(--accent-soft);
       background: rgba(255,178,47,0.14);
@@ -282,8 +280,6 @@
       font-weight: 600;
       transform: translateY(-1px);
     }
-
-    /* Type-farger (vises når de ikke er active) */
 
     .pill--travel {
       border-color: rgba(135, 206, 250, 0.35);
@@ -352,86 +348,232 @@
       display: block;
     }
 
+    /* Dag-for-dag-budsjett */
+
+    .budget-day-wrapper {
+      margin-top: 1.8rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #202334, #111320);
+      box-shadow: var(--shadow);
+      padding: 0.9rem 1rem;
+    }
+
+    .budget-day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .budget-day-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .budget-day-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .budget-day-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .budget-day-pill {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(8,10,18,0.9);
+      padding: 0.22rem 0.7rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.1s ease;
+    }
+
+    .budget-day-pill span {
+      font-size: 0.9rem;
+    }
+
+    .budget-day-pill:hover {
+      border-color: var(--accent-soft);
+      background: rgba(255,178,47,0.06);
+      color: var(--text);
+    }
+
+    .budget-day-pill.active {
+      border-color: var(--accent-soft);
+      background: rgba(255,178,47,0.14);
+      color: var(--accent);
+      font-weight: 600;
+      transform: translateY(-1px);
+    }
+
+    .budget-day-panels {
+      margin-top: 0.3rem;
+    }
+
+    .budget-day-panel {
+      display: none;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(5,6,10,0.85);
+      padding: 0.7rem 0.8rem;
+      font-size: 0.85rem;
+    }
+
+    .budget-day-panel.active {
+      display: block;
+    }
+
+    .budget-day-panel h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .budget-day-location {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .budget-day-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 0.4rem;
+      font-size: 0.84rem;
+    }
+
+    .budget-day-table th,
+    .budget-day-table td {
+      padding: 0.25rem 0.1rem;
+      text-align: left;
+    }
+
+    .budget-day-table th {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .budget-day-table td.amount {
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .budget-day-table tr + tr td {
+      border-top: 1px dashed rgba(255,255,255,0.05);
+    }
+
+    .budget-day-total {
+      margin-top: 0.25rem;
+      font-size: 0.86rem;
+    }
+
+    .budget-day-total strong {
+      color: var(--accent);
+    }
+
+    .budget-day-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+
     /* Alternativ Italia-plan – layout og stil */
 
-.alt-wrapper {
-  margin-top: 0.9rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: radial-gradient(circle at top, #202334, #111320);
-  box-shadow: var(--shadow);
-  padding: 0.9rem 1rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
-  gap: 1.1rem;
-}
+    .alt-wrapper {
+      margin-top: 0.9rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #202334, #111320);
+      box-shadow: var(--shadow);
+      padding: 0.9rem 1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: 1.1rem;
+    }
 
-@media (max-width: 800px) {
-  .alt-wrapper {
-    grid-template-columns: 1fr;
-  }
-}
+    @media (max-width: 800px) {
+      .alt-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
 
-.alt-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.25rem;
-}
+    .alt-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
 
-.alt-main h3 {
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-}
+    .alt-main h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
 
-.alt-main p {
-  font-size: 0.86rem;
-  color: var(--muted);
-  margin-bottom: 0.3rem;
-}
+    .alt-main p {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
 
-.alt-note {
-  font-style: italic;
-  opacity: 0.9;
-}
+    .alt-note {
+      font-style: italic;
+      opacity: 0.9;
+    }
 
-.alt-steps {
-  align-self: center;
-}
+    .alt-steps {
+      align-self: center;
+    }
 
-.alt-step-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 0.86rem;
-  color: var(--muted);
-  counter-reset: altstep;
-}
+    .alt-step-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.86rem;
+      color: var(--muted);
+      counter-reset: altstep;
+    }
 
-.alt-step-list li {
-  position: relative;
-  padding-left: 1.6rem;
-  margin-bottom: 0.28rem;
-}
+    .alt-step-list li {
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: 0.28rem;
+    }
 
-.alt-step-list li::before {
-  content: counter(altstep);
-  counter-increment: altstep;
-  position: absolute;
-  left: 0;
-  top: 0.05rem;
-  width: 1.1rem;
-  height: 1.1rem;
-  border-radius: 999px;
-  border: 1px solid var(--accent-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  color: var(--accent);
-  background: rgba(0,0,0,0.5);
-}
+    .alt-step-list li::before {
+      content: counter(altstep);
+      counter-increment: altstep;
+      position: absolute;
+      left: 0;
+      top: 0.05rem;
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: rgba(0,0,0,0.5);
+    }
 
     /* Dag for dag – accordion */
 
@@ -590,9 +732,8 @@
       cursor: pointer;
     }
 
-    /* Neste dag-knapp */
-
-    .next-day-btn {
+    .next-day-btn,
+    .prev-day-btn {
       margin-top: 0.3rem;
       padding: 0.35rem 0.7rem;
       border-radius: 999px;
@@ -606,24 +747,7 @@
       gap: 0.3rem;
     }
 
-    .next-day-btn:hover {
-      background: rgba(255,178,47,0.16);
-    }
-
-  .prev-day-btn {
-      margin-top: 0.3rem;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid var(--accent-soft);
-      background: rgba(255,178,47,0.08);
-      color: var(--accent);
-      font-size: 0.8rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
+    .next-day-btn:hover,
     .prev-day-btn:hover {
       background: rgba(255,178,47,0.16);
     }
@@ -636,13 +760,12 @@
       color: var(--muted);
       background: #050608;
     }
- 
-    /* Ekstra luft mellom Budsjett og Alt. Italia for bedre scrollspy */
-@media (min-width: 1024px) {
-  #budget {
-    margin-bottom: 180px;
-  }
-}
+
+    @media (min-width: 1024px) {
+      #budget {
+        margin-bottom: 180px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -684,7 +807,6 @@
         </div>
       </div>
       <div class="hero-image">
-        <!-- Bytt til ditt eget header-bilde -->
         <img src="images/camp-beer-pressure-2026-banner.png" alt="Camp Beer Pressure 2026">
         <div class="hero-tag">Camp Beer Pressure 2026 – Road Mode</div>
       </div>
@@ -744,376 +866,379 @@
       </div>
     </section>
 
-<section class="section" id="days">
-  <h2>Dag for dag – klikk for detaljer</h2>
-  <p>Klikk på en dag for å se plan, ca. pris og kart. Bilder vises når boksen åpnes.</p>
+    <section class="section" id="days">
+      <h2>Dag for dag – klikk for detaljer</h2>
+      <p>Klikk på en dag for å se plan, ca. pris og kart. Bilder vises når boksen åpnes.</p>
 
-  <div class="day-list">
-    <!-- Dag 1 -->
-    <article class="day-card" id="day-1">
-      <button class="day-header" type="button">
-        <div class="day-header-main">
-          <div class="day-title">Dag 1 – Notodden → Larvik → Hirtshals → Hamburg</div>
-          <div class="day-meta">Ca. 7–8 t + ferge • Første kveld i Hamburg</div>
-        </div>
-        <div class="day-chevron">▼</div>
-      </button>
-      <div class="day-body">
-        <div class="day-body-inner">
-          <div class="day-image">
-            <img src="images/day1-hamburg.jpg" alt="Dag 1 – Hamburg">
-          </div>
-          <p><strong>Plan:</strong></p>
-          <ul>
-            <li>Avreise fra Notodden på morgenen.</li>
-            <li>Ferge fra Larvik til Hirtshals.</li>
-            <li>Kjøring gjennom Danmark til Hamburg.</li>
-            <li>Innsjekk, enkel middag og et par øl.</li>
-          </ul>
-          <p><strong>Ca. kost (per pers, ekskl. fergebillett):</strong>  
-            Overnatting ~800–900 kr • Mat/øl ~400 kr.
-          </p>
-          <p class="maps-link">
-            Maps:
-            <a href="https://www.google.com/maps/dir/Notodden/Larvik+ferjekai/" target="_blank">Notodden → Larvik</a>,
-            <a href="https://www.google.com/maps/dir/Hirtshals/Hamburg/" target="_blank">Hirtshals → Hamburg</a>
-          </p>
-          <button type="button" class="next-day-btn" data-next="day-2">
-            Neste dag → Dag 2 – Praha
+      <div class="day-list">
+        <!-- Dag 1 -->
+        <article class="day-card" id="day-1">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 1 – Notodden → Larvik → Hirtshals → Hamburg</div>
+              <div class="day-meta">Ca. 7–8 t + ferge • Første kveld i Hamburg</div>
+            </div>
+            <div class="day-chevron">▼</div>
           </button>
-        </div>
-      </div>
-    </article>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day1-hamburg.jpg" alt="Dag 1 – Hamburg">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Avreise fra Notodden på morgenen.</li>
+                <li>Ferge fra Larvik til Hirtshals.</li>
+                <li>Kjøring gjennom Danmark til Hamburg.</li>
+                <li>Innsjekk, enkel middag og et par øl.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers, ekskl. fergebillett):</strong>  
+                Overnatting ~800–900 kr • Mat/øl ~400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Notodden/Larvik+ferjekai/" target="_blank">Notodden → Larvik</a>,
+                <a href="https://www.google.com/maps/dir/Hirtshals/Hamburg/" target="_blank">Hirtshals → Hamburg</a>
+              </p>
+              <button type="button" class="next-day-btn" data-next="day-2">
+                Neste dag → Dag 2 – Praha
+              </button>
+            </div>
+          </div>
+        </article>
 
-    <!-- Dag 2 -->
-    <article class="day-card" id="day-2">
-      <button class="day-header" type="button">
-        <div class="day-header-main">
-          <div class="day-title">Dag 2 – Hamburg → Praha</div>
-          <div class="day-meta">Ca. 6–7 t • Kveld i Praha</div>
-        </div>
-        <div class="day-chevron">▼</div>
-      </button>
-      <div class="day-body">
-        <div class="day-body-inner">
-          <div class="day-image">
-            <img src="images/day2-praha.jpg" alt="Dag 2 – Praha">
+        <!-- Dag 2 -->
+        <article class="day-card" id="day-2">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 2 – Hamburg → Praha</div>
+              <div class="day-meta">Ca. 6–7 t • Kveld i Praha</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day2-praha.jpg" alt="Dag 2 – Praha">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Kjøring ned gjennom Tyskland og Tsjekkia.</li>
+                <li>Ankomst Praha på ettermiddagen/tidlig kveld.</li>
+                <li>Kveld i gamlebyen, mat og øl.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Overnatting ~600–700 kr • Mat/øl ~400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Hamburg/Praha/" target="_blank">Hamburg → Praha</a>
+              </p>
+              <button type="button" class="prev-day-btn" data-prev="day-1">
+                ← Forrige dag – Dag 1
+              </button>
+              <button type="button" class="next-day-btn" data-next="day-3">
+                Neste dag → Dag 3 – Ankomst Nova Rock
+              </button>
+            </div>
           </div>
-          <p><strong>Plan:</strong></p>
-          <ul>
-            <li>Kjøring ned gjennom Tyskland og Tsjekkia.</li>
-            <li>Ankomst Praha på ettermiddagen/tidlig kveld.</li>
-            <li>Kveld i gamlebyen, mat og øl.</li>
-          </ul>
-          <p><strong>Ca. kost (per pers):</strong>  
-            Overnatting ~600–700 kr • Mat/øl ~400 kr.
-          </p>
-          <p class="maps-link">
-            Maps:
-            <a href="https://www.google.com/maps/dir/Hamburg/Praha/" target="_blank">Hamburg → Praha</a>
-          </p>
-          <button type="button" class="prev-day-btn" data-prev="day-1">
-            ← Forrige dag – Dag 1
-          </button>
-          <button type="button" class="next-day-btn" data-next="day-3">
-            Neste dag → Dag 3 – Ankomst Nova Rock
-          </button>
-        </div>
-      </div>
-    </article>
+        </article>
 
-    <!-- Dag 3 -->
-    <article class="day-card" id="day-3">
-      <button class="day-header" type="button">
-        <div class="day-header-main">
-          <div class="day-title">Dag 3 – Praha → Nova Rock (Nickelsdorf)</div>
-          <div class="day-meta">Ca. 3,5–4 t • Ankomst camp</div>
-        </div>
-        <div class="day-chevron">▼</div>
-      </button>
-      <div class="day-body">
-        <div class="day-body-inner">
-          <div class="day-image">
-            <img src="images/day3-novarock-arrival.jpg" alt="Dag 3 – Nova Rock camp">
+        <!-- Dag 3 -->
+        <article class="day-card" id="day-3">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 3 – Praha → Nova Rock (Nickelsdorf)</div>
+              <div class="day-meta">Ca. 3,5–4 t • Ankomst camp</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day3-novarock-arrival.jpg" alt="Dag 3 – Nova Rock camp">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Tidlig avgang fra Praha.</li>
+                <li>Handle inn det siste på veien.</li>
+                <li>Ankomst Nova Rock-området på ettermiddagen/kvelden.</li>
+                <li>Sette opp camp og rolig start.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Mest mat/øl denne dagen ~400–500 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Prague/Nickelsdorf+Austria/" target="_blank">Praha → Nickelsdorf</a>
+              </p>
+              <button type="button" class="prev-day-btn" data-prev="day-2">
+                ← Forrige dag – Dag 2
+              </button>
+              <button type="button" class="next-day-btn" data-next="day-novarock">
+                Neste dag → Dag 4–7 – Nova Rock
+              </button>
+            </div>
           </div>
-          <p><strong>Plan:</strong></p>
-          <ul>
-            <li>Tidlig avgang fra Praha.</li>
-            <li>Handle inn det siste på veien.</li>
-            <li>Ankomst Nova Rock-området på ettermiddagen/kvelden.</li>
-            <li>Sette opp camp og rolig start.</li>
-          </ul>
-          <p><strong>Ca. kost (per pers):</strong>  
-            Mest mat/øl denne dagen ~400–500 kr.
-          </p>
-          <p class="maps-link">
-            Maps:
-            <a href="https://www.google.com/maps/dir/Prague/Nickelsdorf+Austria/" target="_blank">Praha → Nickelsdorf</a>
-          </p>
-          <button type="button" class="prev-day-btn" data-prev="day-2">
-            ← Forrige dag – Dag 2
-          </button>
-          <button type="button" class="next-day-btn" data-next="day-novarock">
-            Neste dag → Dag 4–7 – Nova Rock
-          </button>
-        </div>
-      </div>
-    </article>
+        </article>
 
-    <!-- Dag 4–7 – Nova Rock -->
-    <article class="day-card" id="day-novarock">
-      <button class="day-header" type="button">
-        <div class="day-header-main">
-          <div class="day-title">Dag 4–7 – Nova Rock</div>
-          <div class="day-meta">4 dager • Full festivalmodus</div>
-        </div>
-        <div class="day-chevron">▼</div>
-      </button>
-      <div class="day-body">
-        <div class="day-body-inner">
-          <div class="day-image">
-            <img src="images/day4-7-novarock.jpg" alt="Dag 4–7 – Nova Rock">
+        <!-- Dag 4–7 – Nova Rock -->
+        <article class="day-card" id="day-novarock">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 4–7 – Nova Rock</div>
+              <div class="day-meta">4 dager • Full festivalmodus</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day4-7-novarock.jpg" alt="Dag 4–7 – Nova Rock">
+              </div>
+              <p><strong>Plan:</strong> Camp, konserter, øl, minimalt med bil.</p>
+              <p><strong>Ca. kost (per pers, pr. dag):</strong>  
+                1 200–1 500 kr (mat + drikke, 12–15 halvlitere typisk).
+              </p>
+              <p>Totalt 4 dager: ca. 4 800–6 000 kr per pers (uten billetter).</p>
+              <button type="button" class="prev-day-btn" data-prev="day-3">
+                ← Forrige dag – Dag 3
+              </button>
+              <button type="button" class="next-day-btn" data-next="day-zakopane">
+                Neste dag → Dag 8 – Zakopane
+              </button>
+            </div>
           </div>
-          <p><strong>Plan:</strong> Camp, konserter, øl, minimalt med bil.</p>
-          <p><strong>Ca. kost (per pers, pr. dag):</strong>  
-            1 200–1 500 kr (mat + drikke, 12–15 halvlitere typisk).
-          </p>
-          <p>Totalt 4 dager: ca. 4 800–6 000 kr per pers (uten billetter).</p>
-          <button type="button" class="prev-day-btn" data-prev="day-3">
-            ← Forrige dag – Dag 3
-          </button>
-          <button type="button" class="next-day-btn" data-next="day-zakopane">
-            Neste dag → Dag 8 – Zakopane
-          </button>
-        </div>
-      </div>
-    </article>
+        </article>
 
-    <!-- Dag 8 – Zakopane -->
-    <article class="day-card" id="day-zakopane">
-      <button class="day-header" type="button">
-        <div class="day-header-main">
-          <div class="day-title">Dag 8 – Nova Rock → Zakopane</div>
-          <div class="day-meta">Ca. 4,5–5 t • Fjell og roligere tempo</div>
-        </div>
-        <div class="day-chevron">▼</div>
-      </button>
-      <div class="day-body">
-        <div class="day-body-inner">
-          <div class="day-image">
-            <img src="images/day8-zakopane.jpg" alt="Dag 8 – Zakopane">
+        <!-- Dag 8 – Zakopane -->
+        <article class="day-card" id="day-zakopane">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 8 – Nova Rock → Zakopane</div>
+              <div class="day-meta">Ca. 4,5–5 t • Fjell og roligere tempo</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day8-zakopane.jpg" alt="Dag 8 – Zakopane">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Pakk ned camp, kjør gjennom Slovakia/Polen.</li>
+                <li>Innsjekk i Zakopane.</li>
+                <li>Mat, øl og evt. kveldstur.</li>
+              </ul>
+              <p><strong>Severdigheter:</strong>  
+                Gubałówka fjellheis/utsikt ~150 kr per pers.
+              </p>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Overnatting ~600–700 kr • Mat/øl ~400 kr • Severdigheter ~150 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Nickelsdorf/Zakopane/" target="_blank">Nova Rock → Zakopane</a>
+              </p>
+              <button type="button" class="prev-day-btn" data-prev="day-novarock">
+                ← Forrige dag – Dag 4–7
+              </button>
+              <button type="button" class="next-day-btn" data-next="day-krakow">
+                Neste dag → Dag 9 – Kraków &amp; Wieliczka
+              </button>
+            </div>
           </div>
-          <p><strong>Plan:</strong></p>
-          <ul>
-            <li>Pakk ned camp, kjør gjennom Slovakia/Polen.</li>
-            <li>Innsjekk i Zakopane.</li>
-            <li>Mat, øl og evt. kveldstur.</li>
-          </ul>
-          <p><strong>Severdigheter:</strong>  
-            Gubałówka fjellheis/utsikt ~150 kr per pers.
-          </p>
-          <p><strong>Ca. kost (per pers):</strong>  
-            Overnatting ~600–700 kr • Mat/øl ~400 kr • Severdigheter ~150 kr.
-          </p>
-          <p class="maps-link">
-            Maps:
-            <a href="https://www.google.com/maps/dir/Nickelsdorf/Zakopane/" target="_blank">Nova Rock → Zakopane</a>
-          </p>
-          <button type="button" class="prev-day-btn" data-prev="day-novarock">
-            ← Forrige dag – Dag 4–7
-          </button>
-          <button type="button" class="next-day-btn" data-next="day-krakow">
-            Neste dag → Dag 9 – Kraków &amp; Wieliczka
-          </button>
-        </div>
-      </div>
-    </article>
+        </article>
 
-    <!-- Dag 9 – Kraków/Wieliczka -->
-    <article class="day-card" id="day-krakow">
-      <button class="day-header" type="button">
-        <div class="day-header-main">
-          <div class="day-title">Dag 9 – Zakopane → Kraków → Wieliczka → Kraków</div>
-          <div class="day-meta">Ca. 1,5 t + 20 min • By + gruve</div>
-        </div>
-        <div class="day-chevron">▼</div>
-      </button>
-      <div class="day-body">
-        <div class="day-body-inner">
-          <div class="day-image">
-            <img src="images/day9-krakow-wieliczka.jpg" alt="Dag 9 – Kraków og Wieliczka">
+        <!-- Dag 9 – Kraków/Wieliczka -->
+        <article class="day-card" id="day-krakow">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 9 – Zakopane → Kraków → Wieliczka → Kraków</div>
+              <div class="day-meta">Ca. 1,5 t + 20 min • By + gruve</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day9-krakow-wieliczka.jpg" alt="Dag 9 – Kraków og Wieliczka">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Kjør fra Zakopane til Kraków, sjekke inn.</li>
+                <li>Videre til Wieliczka saltgruve.</li>
+                <li>Kveld i Kazimierz-området med mat og øl.</li>
+              </ul>
+              <p><strong>Severdigheter:</strong>  
+                Wieliczka saltgruve ~350–450 kr per pers.
+              </p>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Overnatting ~600–700 kr • Mat/øl ~400 kr • Severdigheter ~400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Zakopane/Kraków/" target="_blank">Zakopane → Kraków</a>,
+                <a href="https://www.google.com/maps/dir/Kraków/Wieliczka+Salt+Mine/" target="_blank">Kraków → Wieliczka</a>
+              </p>
+              <button type="button" class="prev-day-btn" data-prev="day-zakopane">
+                ← Forrige dag – Dag 8
+              </button>
+              <button type="button" class="next-day-btn" data-next="day-lublin">
+                Neste dag → Dag 10 – Lublin
+              </button>
+            </div>
           </div>
-          <p><strong>Plan:</strong></p>
-          <ul>
-            <li>Kjør fra Zakopane til Kraków, sjekke inn.</li>
-            <li>Videre til Wieliczka saltgruve.</li>
-            <li>Kveld i Kazimierz-området med mat og øl.</li>
-          </ul>
-          <p><strong>Severdigheter:</strong>  
-            Wieliczka saltgruve ~350–450 kr per pers.
-          </p>
-          <p><strong>Ca. kost (per pers):</strong>  
-            Overnatting ~600–700 kr • Mat/øl ~400 kr • Severdigheter ~400 kr.
-          </p>
-          <p class="maps-link">
-            Maps:
-            <a href="https://www.google.com/maps/dir/Zakopane/Kraków/" target="_blank">Zakopane → Kraków</a>,
-            <a href="https://www.google.com/maps/dir/Kraków/Wieliczka+Salt+Mine/" target="_blank">Kraków → Wieliczka</a>
-          </p>
-          <button type="button" class="prev-day-btn" data-prev="day-zakopane">
-            ← Forrige dag – Dag 8
-          </button>
-          <button type="button" class="next-day-btn" data-next="day-lublin">
-            Neste dag → Dag 10 – Lublin
-          </button>
-        </div>
-      </div>
-    </article>
+        </article>
 
-    <!-- Dag 10 – Lublin -->
-    <article class="day-card" id="day-lublin">
-      <button class="day-header" type="button">
-        <div class="day-header-main">
-          <div class="day-title">Dag 10 – Kraków → Lublin</div>
-          <div class="day-meta">Ca. 3 t • Rolig overgangsdag</div>
-        </div>
-        <div class="day-chevron">▼</div>
-      </button>
-      <div class="day-body">
-        <div class="day-body-inner">
-          <div class="day-image">
-            <img src="images/day10-lublin.jpg" alt="Dag 10 – Lublin">
+        <!-- Dag 10 – Lublin -->
+        <article class="day-card" id="day-lublin">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 10 – Kraków → Lublin</div>
+              <div class="day-meta">Ca. 3 t • Rolig overgangsdag</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day10-lublin.jpg" alt="Dag 10 – Lublin">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Kjøring til Lublin.</li>
+                <li>Innsjekk og rusling i gamlebyen.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Overnatting ~500–600 kr • Mat/øl ~350–400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Kraków/Lublin/" target="_blank">Kraków → Lublin</a>
+              </p>
+              <button type="button" class="prev-day-btn" data-prev="day-krakow">
+                ← Forrige dag – Dag 9
+              </button>
+              <button type="button" class="next-day-btn" data-next="day-warszawa">
+                Neste dag → Dag 11 – Warszawa
+              </button>
+            </div>
           </div>
-          <p><strong>Plan:</strong></p>
-          <ul>
-            <li>Kjøring til Lublin.</li>
-            <li>Innsjekk og rusling i gamlebyen.</li>
-          </ul>
-          <p><strong>Ca. kost (per pers):</strong>  
-            Overnatting ~500–600 kr • Mat/øl ~350–400 kr.
-          </p>
-          <p class="maps-link">
-            Maps:
-            <a href="https://www.google.com/maps/dir/Kraków/Lublin/" target="_blank">Kraków → Lublin</a>
-          </p>
-          <button type="button" class="prev-day-btn" data-prev="day-krakow">
-            ← Forrige dag – Dag 9
-          </button>
-          <button type="button" class="next-day-btn" data-next="day-warszawa">
-            Neste dag → Dag 11 – Warszawa
-          </button>
-        </div>
-      </div>
-    </article>
+        </article>
 
-    <!-- Dag 11 – Warszawa -->
-    <article class="day-card" id="day-warszawa">
-      <button class="day-header" type="button">
-        <div class="day-header-main">
-          <div class="day-title">Dag 11 – Lublin → Warszawa</div>
-          <div class="day-meta">Ca. 1,5–2 t • Inn til hovedstaden</div>
-        </div>
-        <div class="day-chevron">▼</div>
-      </button>
-      <div class="day-body">
-        <div class="day-body-inner">
-          <div class="day-image">
-            <img src="images/day11-warszawa.jpg" alt="Dag 11 – Warszawa">
+        <!-- Dag 11 – Warszawa -->
+        <article class="day-card" id="day-warszawa">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 11 – Lublin → Warszawa</div>
+              <div class="day-meta">Ca. 1,5–2 t • Inn til hovedstaden</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day11-warszawa.jpg" alt="Dag 11 – Warszawa">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Kort kjøreøkt til Warszawa.</li>
+                <li>Sjekk inn tidlig.</li>
+                <li>Wisła-barer, gamlebyen, mat, chill.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Overnatting ~700–800 kr • Mat/øl ~400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Lublin/Warszawa/" target="_blank">Lublin → Warszawa</a>
+              </p>
+              <button type="button" class="prev-day-btn" data-prev="day-lublin">
+                ← Forrige dag – Dag 10
+              </button>
+              <button type="button" class="next-day-btn" data-next="day-12-13">
+                Neste dag → Dag 12–13 – Warszawa / festival
+              </button>
+            </div>
           </div>
-          <p><strong>Plan:</strong></p>
-          <ul>
-            <li>Kort kjøreøkt til Warszawa.</li>
-            <li>Sjekk inn tidlig.</li>
-            <li>Wisła-barer, gamlebyen, mat, chill.</li>
-          </ul>
-          <p><strong>Ca. kost (per pers):</strong>  
-            Overnatting ~700–800 kr • Mat/øl ~400 kr.
-          </p>
-          <p class="maps-link">
-            Maps:
-            <a href="https://www.google.com/maps/dir/Lublin/Warszawa/" target="_blank">Lublin → Warszawa</a>
-          </p>
-          <button type="button" class="prev-day-btn" data-prev="day-lublin">
-            ← Forrige dag – Dag 10
-          </button>
-          <button type="button" class="next-day-btn" data-next="day-12-13">
-            Neste dag → Dag 12–13 – Warszawa / festival
-          </button>
-        </div>
-      </div>
-    </article>
+        </article>
 
-    <!-- Dag 12–13 – Warszawa/festival -->
-    <article class="day-card" id="day-12-13">
-      <button class="day-header" type="button">
-        <div class="day-header-main">
-          <div class="day-title">Dag 12–13 – Warszawa / Summer Punch</div>
-          <div class="day-meta">2 dager • Festival / byliv</div>
-        </div>
-        <div class="day-chevron">▼</div>
-      </button>
-      <div class="day-body">
-        <div class="day-body-inner">
-          <div class="day-image">
-            <img src="images/day12-13-warszawa-festival.jpg" alt="Dag 12–13 – Warszawa / festival">
+        <!-- Dag 12–13 – Warszawa/festival -->
+        <article class="day-card" id="day-12-13">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 12–13 – Warszawa / Summer Punch</div>
+              <div class="day-meta">2 dager • Festival / byliv</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day12-13-warszawa-festival.jpg" alt="Dag 12–13 – Warszawa / festival">
+              </div>
+              <p><strong>Plan:</strong> Enten Summer Punch-festival, eller to dager med byliv, barer og sightseeing.</p>
+              <p><strong>Ca. kost (per pers, pr. dag):</strong>  
+                ~1 200–1 500 kr (mat + drikke, festivalnivå).
+              </p>
+              <button type="button" class="prev-day-btn" data-prev="day-warszawa">
+                ← Forrige dag – Dag 11
+              </button>
+              <button type="button" class="next-day-btn" data-next="day-home">
+                Neste dag → Dag 14 – Hjemreise
+              </button>
+            </div>
           </div>
-          <p><strong>Plan:</strong> Enten Summer Punch-festival, eller to dager med byliv, barer og sightseeing.</p>
-          <p><strong>Ca. kost (per pers, pr. dag):</strong>  
-            ~1 200–1 500 kr (mat + drikke, festivalnivå).
-          </p>
-          <button type="button" class="prev-day-btn" data-prev="day-warszawa">
-            ← Forrige dag – Dag 11
-          </button>
-          <button type="button" class="next-day-btn" data-next="day-home">
-            Neste dag → Dag 14 – Hjemreise
-          </button>
-        </div>
-      </div>
-    </article>
+        </article>
 
-    <!-- Dag 14 – hjem -->
-    <article class="day-card" id="day-home">
-      <button class="day-header" type="button">
-        <div class="day-header-main">
-          <div class="day-title">Dag 14 – Warszawa → Świnoujście → Ystad → Göteborg → Notodden</div>
-          <div class="day-meta">Ca. 10–12 t kjøring • Ferge + hjem</div>
-        </div>
-        <div class="day-chevron">▼</div>
-      </button>
-      <div class="day-body">
-        <div class="day-body-inner">
-          <div class="day-image">
-            <img src="images/day14-home.jpg" alt="Dag 14 – Hjem via Sverige">
-          </div>
-          <p><strong>Plan:</strong></p>
-          <ul>
-            <li>Kjøring mot kysten og Świnoujście.</li>
-            <li>Nattferge til Sverige.</li>
-            <li>Ystad → Göteborg langs kysten.</li>
-            <li>Siste strekk hjem til Notodden.</li>
-          </ul>
-          <p><strong>Ca. kost (per pers):</strong>  
-            Andel ferge/kahytt ~750 kr • Mat/øl ~400 kr.
-          </p>
-          <p class="maps-link">
-            Maps:
-            <a href="https://www.google.com/maps/dir/Warszawa/Świnoujście/" target="_blank">Warszawa → Świnoujście</a>,
-            <a href="https://www.google.com/maps/dir/Ystad/Göteborg/" target="_blank">Ystad → Göteborg</a>,
-            <a href="https://www.google.com/maps/dir/Göteborg/Notodden/" target="_blank">Göteborg → Notodden</a>
-          </p>
-          <button type="button" class="prev-day-btn" data-prev="day-12-13">
-            ← Forrige dag – Dag 12–13
+        <!-- Dag 14 – hjem -->
+        <article class="day-card" id="day-home">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 14 – Warszawa → Świnoujście → Ystad → Göteborg → Notodden</div>
+              <div class="day-meta">Ca. 10–12 t kjøring • Ferge + hjem</div>
+            </div>
+            <div class="day-chevron">▼</div>
           </button>
-        </div>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day14-home.jpg" alt="Dag 14 – Hjem via Sverige">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Kjøring mot kysten og Świnoujście.</li>
+                <li>Nattferge til Sverige.</li>
+                <li>Ystad → Göteborg langs kysten.</li>
+                <li>Siste strekk hjem til Notodden.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Andel ferge/kahytt ~750 kr • Mat/øl ~400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Warszawa/Świnoujście/" target="_blank">Warszawa → Świnoujście</a>,
+                <a href="https://www.google.com/maps/dir/Ystad/Göteborg/" target="_blank">Ystad → Göteborg</a>,
+                <a href="https://www.google.com/maps/dir/Göteborg/Notodden/" target="_blank">Göteborg → Notodden</a>
+              </p>
+              <button type="button" class="prev-day-btn" data-prev="day-12-13">
+                ← Forrige dag – Dag 12–13
+              </button>
+            </div>
+          </div>
+        </article>
       </div>
-    </article>
-  </div>
-</section>
+    </section>
+
     <section class="section" id="budget">
       <h2>Budsjett – grovt overslag per pers (uten billetter)</h2>
       <p>
         Tallene under er et realistisk, men ikke konservativt anslag – spesielt på drikking på festival.
       </p>
+
+      <!-- Basisposter -->
       <div class="budget-grid">
         <div class="budget-card">
           <strong>Overnatting</strong>
@@ -1140,108 +1265,537 @@
           <p>Wieliczka, fjellheis i Zakopane og litt ekstra småting.</p>
         </div>
       </div>
-<h3 style="margin-top:1.6rem;">Ekstraposter vi må ta høyde for</h3>
-<p style="font-size:0.88rem; color:var(--muted); max-width:850px;">
-  Dette er kostnader som ofte glemmes i festivalplanlegging, men som i praksis alltid dukker opp.
-</p>
 
-<div class="budget-grid" style="margin-top:0.6rem;">
-  <div class="budget-card">
-    <strong>Camp–utstyr (engangskjøp)</strong>
-    <span>Ca. 900–1 200 kr per person</span>
-    <p>
-      Telt, tralle/vogn, stoler, tarp, groundsheet, gass, campbord, kjøleelementer
-      og småting som duct tape, strips og hygieneutstyr.
-    </p>
-  </div>
+      <!-- Ekstraposter -->
+      <h3 style="margin-top:1.6rem;">Ekstraposter vi må ta høyde for</h3>
+      <p style="font-size:0.88rem; color:var(--muted); max-width:850px;">
+        Dette er kostnader som ofte glemmes i festivalplanlegging, men som i praksis alltid dukker opp.
+      </p>
 
-  <div class="budget-card">
-    <strong>Alkohol til camp</strong>
-    <span>Ca. 700–1 000 kr per person</span>
-    <p>
-      1–2 flasker sprit, mixers (cola/tonic/energidrikk) og 1–2 kasser øl
-      før festivalprisene tar over.
-    </p>
-  </div>
+      <div class="budget-grid" style="margin-top:0.6rem;">
+        <div class="budget-card">
+          <strong>Camp–utstyr (engangskjøp)</strong>
+          <span>Ca. 900–1 200 kr per person</span>
+          <p>
+            Telt, tralle/vogn, stoler, tarp, groundsheet, gass, campbord, kjøleelementer
+            og småting som duct tape, strips og hygieneutstyr.
+          </p>
+        </div>
 
-  <div class="budget-card">
-    <strong>Snacks, vann &amp; camp-forbruk</strong>
-    <span>Ca. 350–500 kr per person</span>
-    <p>
-      Vann i varmen (6–8 liter/dag), snacks, frokost, isposer, 
-      og diverse camp-forbruk som går gjennom uka.
-    </p>
-  </div>
+        <div class="budget-card">
+          <strong>Alkohol til camp</strong>
+          <span>Ca. 700–1 000 kr per person</span>
+          <p>
+            1–2 flasker sprit, mixers (cola/tonic/energidrikk) og 1–2 kasser øl
+            før festivalprisene tar over.
+          </p>
+        </div>
 
-  <div class="budget-card">
-    <strong>Felleskasse</strong>
-    <span>Ca. 400–600 kr per person</span>
-    <p>
-      Parkering, dusjer, depositum, småhandling, ekstra øl,
-      uforutsette utgifter og taxi/shuttle som deles.
-    </p>
-  </div>
-</div>
+        <div class="budget-card">
+          <strong>Snacks, vann &amp; camp-forbruk</strong>
+          <span>Ca. 350–500 kr per person</span>
+          <p>
+            Vann i varmen (6–8 liter/dag), snacks, frokost, isposer, 
+            og diverse camp-forbruk som går gjennom uka.
+          </p>
+        </div>
 
-<div class="accent-box" style="margin-top:1rem;">
-  <div class="accent-label">Totalt tillegg</div>
-  <p>
-    Disse postene legger på omtrent <strong>2 300–3 300 kr per person</strong> 
-    i tillegg til hovedbudsjettet.  
-    Det bringer totalen opp i et mer realistisk nivå på:
-    <br><strong>21 800–25 300 kr per person</strong> (uten billetter).
-  </p>
-</div>
-      
-      <div class="accent-box">
-        <div class="accent-label">Anbefalt total</div>
+        <div class="budget-card">
+          <strong>Felleskasse</strong>
+          <span>Ca. 400–600 kr per person</span>
+          <p>
+            Parkering, dusjer, depositum, småhandling, ekstra øl,
+            uforutsette utgifter og taxi/shuttle som deles.
+          </p>
+        </div>
+      </div>
+
+      <!-- Oppsummert total -->
+      <div class="accent-box" style="margin-top:1rem;">
+        <div class="accent-label">Oppsummert budsjett (uten billetter)</div>
         <p>
-          Sum havner da rundt <strong>ca. 19 500 kr per person</strong>.  
-          Med 10–15 % slingringsmonn (ekstra øl, mat, shopping, litt bedre hotell):
-          <strong>ca. 22 000 kr per person</strong> er et komfortabelt nivå – igjen uten festivalbilletter.
+          Basisposter (overnatting, drivstoff, mat/drikke og severdigheter) gir rundt
+          <strong>19 500 kr per person</strong>.<br>
+          Ekstrapostene for camp-utstyr, sprit/øl, snacks/vann og felleskasse legger på ca.
+          <strong>2 300–3 300 kr per person</strong>.<br><br>
+          Realistisk total havner dermed på omtrent
+          <strong>21 800–22 800 kr per person</strong>.  
+          Med 10–15 % slingringsmonn for ekstra øl, shopping og litt bedre hoteller er det lurt å budsjettere med
+          <strong>ca. 24 000–26 000 kr per person</strong> (uten billetter).
+        </p>
+      </div>
+
+      <!-- Dag-for-dag-budsjett -->
+      <div class="budget-day-wrapper">
+        <div class="budget-day-header">
+          <div class="budget-day-title">Økonomi per dag</div>
+          <div class="budget-day-sub">Trykk på en dag under for å se ca. kost per pers.</div>
+        </div>
+
+        <div class="budget-day-pills">
+          <button type="button" class="budget-day-pill active" data-target="budget-day-1">
+            <span>🚗</span> Dag 1 – Hamburg
+          </button>
+          <button type="button" class="budget-day-pill" data-target="budget-day-2">
+            <span>🚗</span> Dag 2 – Praha
+          </button>
+          <button type="button" class="budget-day-pill" data-target="budget-day-3">
+            <span>🚗</span> Dag 3 – Ankomst NR
+          </button>
+          <button type="button" class="budget-day-pill" data-target="budget-day-4-7">
+            <span>🎪</span> Dag 4–7 – Nova Rock
+          </button>
+          <button type="button" class="budget-day-pill" data-target="budget-day-8">
+            <span>⛰️</span> Dag 8 – Zakopane
+          </button>
+          <button type="button" class="budget-day-pill" data-target="budget-day-9">
+            <span>🏙️</span> Dag 9 – Kraków/Wieliczka
+          </button>
+          <button type="button" class="budget-day-pill" data-target="budget-day-10">
+            <span>🏙️</span> Dag 10 – Lublin
+          </button>
+          <button type="button" class="budget-day-pill" data-target="budget-day-11">
+            <span>🎵</span> Dag 11 – Warszawa
+          </button>
+          <button type="button" class="budget-day-pill" data-target="budget-day-12-13">
+            <span>🎵</span> Dag 12–13 – Warszawa / fest
+          </button>
+          <button type="button" class="budget-day-pill" data-target="budget-day-14">
+            <span>🏁</span> Dag 14 – Hjem
+          </button>
+        </div>
+
+        <div class="budget-day-panels">
+          <!-- Dag 1 -->
+          <div class="budget-day-panel active" id="budget-day-1">
+            <h4>Dag 1 – Notodden → Hamburg</h4>
+            <div class="budget-day-location">Første etappe, ferge + inn i storbyen.</div>
+            <table class="budget-day-table">
+              <thead>
+                <tr>
+                  <th>Kategori</th>
+                  <th class="amount">Ca. beløp</th>
+                  <th>Kommentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Overnatting</td>
+                  <td class="amount">800–900 kr</td>
+                  <td>Enkelt hotell i Hamburg, delt rom.</td>
+                </tr>
+                <tr>
+                  <td>Mat &amp; øl</td>
+                  <td class="amount">350–450 kr</td>
+                  <td>Middag + noen øl første kveld.</td>
+                </tr>
+                <tr>
+                  <td>Transport &amp; småting</td>
+                  <td class="amount">250–350 kr</td>
+                  <td>Andel drivstoff + snacks/kaffe på vei ned.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="budget-day-total">
+              Sum dag 1: <strong>ca. 1 400–1 700 kr per pers</strong>.
+            </div>
+            <div class="budget-day-note">
+              Her er det lett å blåse mer hvis første kveld i Hamburg tar av – men dette er “normal” start.
+            </div>
+          </div>
+
+          <!-- Dag 2 -->
+          <div class="budget-day-panel" id="budget-day-2">
+            <h4>Dag 2 – Hamburg → Praha</h4>
+            <div class="budget-day-location">Lang transportdag, første skikkelige bykveld.</div>
+            <table class="budget-day-table">
+              <thead>
+                <tr>
+                  <th>Kategori</th>
+                  <th class="amount">Ca. beløp</th>
+                  <th>Kommentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Overnatting</td>
+                  <td class="amount">600–700 kr</td>
+                  <td>Praha, moderat standard.</td>
+                </tr>
+                <tr>
+                  <td>Mat &amp; øl</td>
+                  <td class="amount">400–500 kr</td>
+                  <td>Middag + noen øl i gamlebyen.</td>
+                </tr>
+                <tr>
+                  <td>Transport</td>
+                  <td class="amount">250–350 kr</td>
+                  <td>Andel drivstoff/bompenger.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="budget-day-total">
+              Sum dag 2: <strong>ca. 1 250–1 550 kr per pers</strong>.
+            </div>
+            <div class="budget-day-note">
+              Praha er billigere enn Norge – det er ølene som avgjør om dette blir low key eller turistfelle.
+            </div>
+          </div>
+
+          <!-- Dag 3 -->
+          <div class="budget-day-panel" id="budget-day-3">
+            <h4>Dag 3 – Praha → Nova Rock</h4>
+            <div class="budget-day-location">Innkjøp, ankomst camp og rolig oppstart.</div>
+            <table class="budget-day-table">
+              <thead>
+                <tr>
+                  <th>Kategori</th>
+                  <th class="amount">Ca. beløp</th>
+                  <th>Kommentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mat &amp; øl</td>
+                  <td class="amount">400–500 kr</td>
+                  <td>Første festivaldag light.</td>
+                </tr>
+                <tr>
+                  <td>Camp-setup</td>
+                  <td class="amount">300–500 kr</td>
+                  <td>Siste innkjøp til camp + småting.</td>
+                </tr>
+                <tr>
+                  <td>Transport</td>
+                  <td class="amount">200–300 kr</td>
+                  <td>Andel drivstoff ned til Nova Rock.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="budget-day-total">
+              Sum dag 3: <strong>ca. 900–1 300 kr per pers</strong>.
+            </div>
+            <div class="budget-day-note">
+              Her kan en del av camp-budsjettet legges, spesielt hvis dere trenger ekstra stæsj.
+            </div>
+          </div>
+
+          <!-- Dag 4–7 -->
+          <div class="budget-day-panel" id="budget-day-4-7">
+            <h4>Dag 4–7 – Nova Rock</h4>
+            <div class="budget-day-location">Fire fulle festivaldager i solsteken.</div>
+            <table class="budget-day-table">
+              <thead>
+                <tr>
+                  <th>Kategori</th>
+                  <th class="amount">Ca. beløp / dag</th>
+                  <th>Kommentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mat</td>
+                  <td class="amount">250–350 kr</td>
+                  <td>1–2 måltider på området per dag.</td>
+                </tr>
+                <tr>
+                  <td>Øl &amp; drikke</td>
+                  <td class="amount">800–1 100 kr</td>
+                  <td>12–15 halvlitere / blanding med camp-sprit.</td>
+                </tr>
+                <tr>
+                  <td>Snacks &amp; vann</td>
+                  <td class="amount">150–200 kr</td>
+                  <td>Vann, energidrikk, nattmat, is osv.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="budget-day-total">
+              Sum pr. festivaldag: <strong>ca. 1 200–1 600 kr per pers</strong>.<br>
+              4 dager: <strong>ca. 4 800–6 400 kr per pers</strong>.
+            </div>
+            <div class="budget-day-note">
+              Dette er der pengene renner. Har dere med sprit fra camp-budsjettet kan ølposten krympes litt.
+            </div>
+          </div>
+
+          <!-- Dag 8 -->
+          <div class="budget-day-panel" id="budget-day-8">
+            <h4>Dag 8 – Zakopane</h4>
+            <div class="budget-day-location">Fjell, roligere tempo og utsikt.</div>
+            <table class="budget-day-table">
+              <thead>
+                <tr>
+                  <th>Kategori</th>
+                  <th class="amount">Ca. beløp</th>
+                  <th>Kommentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Overnatting</td>
+                  <td class="amount">600–700 kr</td>
+                  <td>Gjestgiveri / hotell.</td>
+                </tr>
+                <tr>
+                  <td>Mat &amp; øl</td>
+                  <td class="amount">350–450 kr</td>
+                  <td>Middag + noen øl.</td>
+                </tr>
+                <tr>
+                  <td>Severdigheter</td>
+                  <td class="amount">150–200 kr</td>
+                  <td>Fjellheis / utsiktspunkt.</td>
+                </tr>
+                <tr>
+                  <td>Transport</td>
+                  <td class="amount">200–300 kr</td>
+                  <td>Andel drivstoff gjennom Slovakia/Polen.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="budget-day-total">
+              Sum dag 8: <strong>ca. 1 300–1 650 kr per pers</strong>.
+            </div>
+          </div>
+
+          <!-- Dag 9 -->
+          <div class="budget-day-panel" id="budget-day-9">
+            <h4>Dag 9 – Kraków &amp; Wieliczka</h4>
+            <div class="budget-day-location">By + gruve, mer kultur og litt mer kost.</div>
+            <table class="budget-day-table">
+              <thead>
+                <tr>
+                  <th>Kategori</th>
+                  <th class="amount">Ca. beløp</th>
+                  <th>Kommentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Overnatting</td>
+                  <td class="amount">600–700 kr</td>
+                  <td>Hotell i Kraków.</td>
+                </tr>
+                <tr>
+                  <td>Mat &amp; øl</td>
+                  <td class="amount">400–500 kr</td>
+                  <td>Kveld i Kazimierz.</td>
+                </tr>
+                <tr>
+                  <td>Wieliczka</td>
+                  <td class="amount">350–450 kr</td>
+                  <td>Billetter til saltgruva.</td>
+                </tr>
+                <tr>
+                  <td>Transport</td>
+                  <td class="amount">150–250 kr</td>
+                  <td>Korte etapper til/fra gruva.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="budget-day-total">
+              Sum dag 9: <strong>ca. 1 500–1 900 kr per pers</strong>.
+            </div>
+          </div>
+
+          <!-- Dag 10 -->
+          <div class="budget-day-panel" id="budget-day-10">
+            <h4>Dag 10 – Lublin</h4>
+            <div class="budget-day-location">Rolig mellomstopp, litt lavere forbruk.</div>
+            <table class="budget-day-table">
+              <thead>
+                <tr>
+                  <th>Kategori</th>
+                  <th class="amount">Ca. beløp</th>
+                  <th>Kommentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Overnatting</td>
+                  <td class="amount">500–600 kr</td>
+                  <td>Hotell i Lublin.</td>
+                </tr>
+                <tr>
+                  <td>Mat &amp; øl</td>
+                  <td class="amount">350–400 kr</td>
+                  <td>Chill kveld i gamlebyen.</td>
+                </tr>
+                <tr>
+                  <td>Transport</td>
+                  <td class="amount">200–300 kr</td>
+                  <td>Kjøring fra Kraków.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="budget-day-total">
+              Sum dag 10: <strong>ca. 1 050–1 300 kr per pers</strong>.
+            </div>
+          </div>
+
+          <!-- Dag 11 -->
+          <div class="budget-day-panel" id="budget-day-11">
+            <h4>Dag 11 – Warszawa</h4>
+            <div class="budget-day-location">Inn i hovedstaden, barer langs Wisła.</div>
+            <table class="budget-day-table">
+              <thead>
+                <tr>
+                  <th>Kategori</th>
+                  <th class="amount">Ca. beløp</th>
+                  <th>Kommentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Overnatting</td>
+                  <td class="amount">700–800 kr</td>
+                  <td>Hotell i sentrum.</td>
+                </tr>
+                <tr>
+                  <td>Mat &amp; øl</td>
+                  <td class="amount">400–500 kr</td>
+                  <td>Middag + barer.</td>
+                </tr>
+                <tr>
+                  <td>Transport</td>
+                  <td class="amount">150–250 kr</td>
+                  <td>Kjøring fra Lublin.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="budget-day-total">
+              Sum dag 11: <strong>ca. 1 250–1 550 kr per pers</strong>.
+            </div>
+          </div>
+
+          <!-- Dag 12–13 -->
+          <div class="budget-day-panel" id="budget-day-12-13">
+            <h4>Dag 12–13 – Warszawa / Summer Punch</h4>
+            <div class="budget-day-location">To dager med festivalnivå eller byliv.</div>
+            <table class="budget-day-table">
+              <thead>
+                <tr>
+                  <th>Kategori</th>
+                  <th class="amount">Ca. beløp / dag</th>
+                  <th>Kommentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mat</td>
+                  <td class="amount">250–350 kr</td>
+                  <td>1–2 måltider ute.</td>
+                </tr>
+                <tr>
+                  <td>Øl &amp; drikke</td>
+                  <td class="amount">800–1 100 kr</td>
+                  <td>Festival-/utelivsnivå.</td>
+                </tr>
+                <tr>
+                  <td>Ekstra</td>
+                  <td class="amount">100–300 kr</td>
+                  <td>Taxi, småting, eventuelt merch.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="budget-day-total">
+              Sum pr. dag: <strong>ca. 1 150–1 750 kr per pers</strong>.<br>
+              2 dager: <strong>ca. 2 300–3 500 kr per pers</strong>.
+            </div>
+          </div>
+
+          <!-- Dag 14 -->
+          <div class="budget-day-panel" id="budget-day-14">
+            <h4>Dag 14 – Hjemreise</h4>
+            <div class="budget-day-location">Ferge, lang etappe og siste stopp.</div>
+            <table class="budget-day-table">
+              <thead>
+                <tr>
+                  <th>Kategori</th>
+                  <th class="amount">Ca. beløp</th>
+                  <th>Kommentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ferge/kahytt</td>
+                  <td class="amount">700–800 kr</td>
+                  <td>Andel lugar på nattferge.</td>
+                </tr>
+                <tr>
+                  <td>Mat &amp; snacks</td>
+                  <td class="amount">350–450 kr</td>
+                  <td>Mat på ferge + langs veien.</td>
+                </tr>
+                <tr>
+                  <td>Drivstoff</td>
+                  <td class="amount">300–400 kr</td>
+                  <td>Langkjøring gjennom Sverige/Norge.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="budget-day-total">
+              Sum dag 14: <strong>ca. 1 350–1 650 kr per pers</strong>.
+            </div>
+            <div class="budget-day-note">
+              Dette er siste “plikt-dag” økonomisk – alt etter dette er bare reparasjon av lever og konto.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dag-for-dag oppsummering -->
+      <div class="accent-box" style="margin-top:0.9rem;">
+        <div class="accent-label">Dag for dag – økonomiblokk</div>
+        <p>
+          De rolige reisedagene ligger typisk på <strong>1 200–1 600 kr</strong>,  
+          mens rene festival-/utelivsdager ligger nærmere <strong>1 200–1 700 kr</strong> per pers.  
+          Ved å justere antall øl per dag eller bytte ut ett hotell med billigere overnatting,
+          kan dere ganske lett kutte <strong>2–3 000 kr</strong> uten at turen føles noe mindre legendarisk.
         </p>
       </div>
     </section>
-    
-<section class="section" id="altplan">
-  <h2>Alternativ plan – Italia-retning</h2>
-  <p>
-    Hvis Polen / Summer Punch droppes, kan vi kjøre en mer episk naturrute via Alpene og Italia.
-    Dette er ikke detaljplanlagt, men en skisse som vi kan tweake fritt.
-  </p>
-  
-  <div class="alt-wrapper">
-    <div class="alt-main">
-      <div class="alt-label">Alternativ rute</div>
-      <h3>Skisse: Nova Rock → Italia</h3>
-      <p>
-        Fokus på fjellpass, utsikt og digg mat. Litt mer kjøring og litt dyrere,
-        men til gjengjeld en tur vi bare gjør én gang i livet.
-      </p>
-      <p class="alt-note">
-        Denne varianten er helt valgfri – tanken er å ha et “plan B” som fortsatt føles episk
-        hvis vi dropper Polen/Summer Punch.
-      </p>
-    </div>
 
-    <div class="alt-steps">
-      <ol class="alt-step-list">
-        <li>Nova Rock → Salzburg (første natt i Alpene)</li>
-        <li>Grossglockner High Alpine Road (ikonisk fjellpass)</li>
-        <li>Dolomittene – f.eks. Cortina d’Ampezzo</li>
-        <li>Venezia – bo utenfor, dagstur inn med tog/båt</li>
-        <li>Gardasjøen eller Como – bading, chill og litt bedre mat</li>
-        <li>Nord-Italia → Sveits → Tyskland → Sverige → Norge</li>
-      </ol>
-    </div>
-  </div>
-</section>
+    <section class="section" id="altplan">
+      <h2>Alternativ plan – Italia-retning</h2>
+      <p>
+        Hvis Polen / Summer Punch droppes, kan vi kjøre en mer episk naturrute via Alpene og Italia.
+        Dette er ikke detaljplanlagt, men en skisse som vi kan tweake fritt.
+      </p>
+      
+      <div class="alt-wrapper">
+        <div class="alt-main">
+          <div class="alt-label">Alternativ rute</div>
+          <h3>Skisse: Nova Rock → Italia</h3>
+          <p>
+            Fokus på fjellpass, utsikt og digg mat. Litt mer kjøring og litt dyrere,
+            men til gjengjeld en tur vi bare gjør én gang i livet.
+          </p>
+          <p class="alt-note">
+            Denne varianten er helt valgfri – tanken er å ha et “plan B” som fortsatt føles episk
+            hvis vi dropper Polen/Summer Punch.
+          </p>
+        </div>
+
+        <div class="alt-steps">
+          <ol class="alt-step-list">
+            <li>Nova Rock → Salzburg (første natt i Alpene)</li>
+            <li>Grossglockner High Alpine Road (ikonisk fjellpass)</li>
+            <li>Dolomittene – f.eks. Cortina d’Ampezzo</li>
+            <li>Venezia – bo utenfor, dagstur inn med tog/båt</li>
+            <li>Gardasjøen eller Como – bading, chill og litt bedre mat</li>
+            <li>Nord-Italia → Sveits → Tyskland → Sverige → Norge</li>
+          </ol>
+        </div>
+      </div>
+    </section>
   </main>
 
-<footer>
-  Camp Beer Pressure – Roadtrip 2026 • Dette er et forslag, ikke en fasit. Endringer oppmuntres.<br />
-  <span style="font-size:0.7rem; color:#666;">Versjon 1.0 – oppdatert 18.11.2025</span>
-</footer>
+  <footer>
+    Camp Beer Pressure – Roadtrip 2026 • Dette er et forslag, ikke en fasit. Endringer oppmuntres.<br />
+    <span style="font-size:0.7rem; color:#666;">Versjon 1.1 – oppdatert 18.11.2025</span>
+  </footer>
 
   <!-- Lightbox-overlay -->
   <div class="lightbox-backdrop" id="lightbox">
@@ -1251,284 +1805,286 @@
     </div>
   </div>
   
-<script>
-  const dayCards = document.querySelectorAll('.day-card');
-  const pills = document.querySelectorAll('.pill[data-target]');
-  const nextButtons = document.querySelectorAll('.next-day-btn');
-  const prevButtons = document.querySelectorAll('.prev-day-btn');
+  <script>
+    const dayCards = document.querySelectorAll('.day-card');
+    const pills = document.querySelectorAll('.pill[data-target]');
+    const nextButtons = document.querySelectorAll('.next-day-btn');
+    const prevButtons = document.querySelectorAll('.prev-day-btn');
 
-  function getHeaderOffset() {
-    const header = document.querySelector('header');
-    if (!header) return 90;
-    const rect = header.getBoundingClientRect();
-    // Litt ekstra luft under headeren
-    return rect.height + 8;
-  }
+    function getHeaderOffset() {
+      const header = document.querySelector('header');
+      if (!header) return 90;
+      const rect = header.getBoundingClientRect();
+      return rect.height + 8;
+    }
 
-  function closeAllExcept(cardToKeep) {
-    dayCards.forEach(card => {
-      if (card !== cardToKeep) {
-        card.classList.remove('open');
-        const body = card.querySelector('.day-body');
-        if (body) body.style.maxHeight = null;
-      }
-    });
-  }
-
-  function scrollCardIntoView(card) {
-    setTimeout(() => {
-      const headerHeight = getHeaderOffset();
-      const headerEl = card.querySelector('.day-header') || card;
-      const rect = headerEl.getBoundingClientRect();
-      const offset = rect.top + window.scrollY - headerHeight;
-
-      window.scrollTo({
-        top: Math.max(offset, 0),
-        behavior: 'smooth'
+    function closeAllExcept(cardToKeep) {
+      dayCards.forEach(card => {
+        if (card !== cardToKeep) {
+          card.classList.remove('open');
+          const body = card.querySelector('.day-body');
+          if (body) body.style.maxHeight = null;
+        }
       });
-    }, 200); // litt mer slack for mobil-layouten
-  }
+    }
 
-  // Accordion-logikk for dag-boksene (klikk på header)
-  dayCards.forEach(card => {
-    const header = card.querySelector('.day-header');
-    const body = card.querySelector('.day-body');
-
-    header.addEventListener('click', () => {
-      const isOpen = card.classList.contains('open');
-
-      if (!isOpen) {
-        // åpne valgt dag
-        closeAllExcept(card);
-        card.classList.add('open');
-        body.style.maxHeight = body.scrollHeight + 'px';
-
-        // nullstill aktiv pill
-        pills.forEach(p => p.classList.remove('active'));
-
-        // scroll slik at dagen legger seg pent under headeren
-        scrollCardIntoView(card);
-      } else {
-        // lukke dag: fjern aktiv pill + scroll til topp
-        card.classList.remove('open');
-        body.style.maxHeight = null;
-
-        pills.forEach(p => p.classList.remove('active'));
+    function scrollCardIntoView(card) {
+      setTimeout(() => {
+        const headerHeight = getHeaderOffset();
+        const headerEl = card.querySelector('.day-header') || card;
+        const rect = headerEl.getBoundingClientRect();
+        const offset = rect.top + window.scrollY - headerHeight;
 
         window.scrollTo({
-          top: 0,
+          top: Math.max(offset, 0),
           behavior: 'smooth'
         });
-      }
-    });
-  });
+      }, 200);
+    }
 
-  // Klikk på mini-rute-pill -> scroll + åpne riktig dag + marker valgt
-  pills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      const targetId = pill.getAttribute('data-target');
-      const card = document.getElementById(targetId);
-      if (!card) return;
-
+    // Accordion for dag-boksene
+    dayCards.forEach(card => {
+      const header = card.querySelector('.day-header');
       const body = card.querySelector('.day-body');
-      if (!body) return;
 
-      // marker aktiv pill
-      pills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
+      header.addEventListener('click', () => {
+        const isOpen = card.classList.contains('open');
 
-      // åpne denne, lukk andre
-      const isOpen = card.classList.contains('open');
-      if (!isOpen) {
-        closeAllExcept(card);
-        card.classList.add('open');
+        if (!isOpen) {
+          closeAllExcept(card);
+          card.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 'px';
+          pills.forEach(p => p.classList.remove('active'));
+          scrollCardIntoView(card);
+        } else {
+          card.classList.remove('open');
+          body.style.maxHeight = null;
+          pills.forEach(p => p.classList.remove('active'));
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Mini-rute-pills → åpne riktig dag
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const targetId = pill.getAttribute('data-target');
+        const card = document.getElementById(targetId);
+        if (!card) return;
+
+        const body = card.querySelector('.day-body');
+        if (!body) return;
+
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        const isOpen = card.classList.contains('open');
+        if (!isOpen) {
+          closeAllExcept(card);
+          card.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+
+        scrollCardIntoView(card);
+      });
+    });
+
+    // Neste/forrige dag-knapper
+    nextButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const nextId = btn.getAttribute('data-next');
+        if (!nextId) return;
+
+        const nextCard = document.getElementById(nextId);
+        if (!nextCard) return;
+
+        const body = nextCard.querySelector('.day-body');
+        if (!body) return;
+
+        closeAllExcept(nextCard);
+        nextCard.classList.add('open');
         body.style.maxHeight = body.scrollHeight + 'px';
-      }
 
-      // scroll til valgt dag
-      scrollCardIntoView(card);
+        const targetPill = document.querySelector('.pill[data-target="' + nextId + '"]');
+        if (targetPill) {
+          pills.forEach(p => p.classList.remove('active'));
+          targetPill.classList.add('active');
+        }
+
+        scrollCardIntoView(nextCard);
+      });
     });
-  });
 
-  // Neste dag-knapper
-  nextButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const nextId = btn.getAttribute('data-next');
-      if (!nextId) return;
+    prevButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const prevId = btn.getAttribute('data-prev');
+        if (!prevId) return;
 
-      const nextCard = document.getElementById(nextId);
-      if (!nextCard) return;
+        const prevCard = document.getElementById(prevId);
+        if (!prevCard) return;
 
-      const body = nextCard.querySelector('.day-body');
-      if (!body) return;
+        const body = prevCard.querySelector('.day-body');
+        if (!body) return;
 
-      closeAllExcept(nextCard);
-      nextCard.classList.add('open');
-      body.style.maxHeight = body.scrollHeight + 'px';
+        closeAllExcept(prevCard);
+        prevCard.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
 
-      const targetPill = document.querySelector('.pill[data-target="' + nextId + '"]');
-      if (targetPill) {
-        pills.forEach(p => p.classList.remove('active'));
-        targetPill.classList.add('active');
-      }
+        const targetPill = document.querySelector('.pill[data-target="' + prevId + '"]');
+        if (targetPill) {
+          pills.forEach(p => p.classList.remove('active'));
+          targetPill.classList.add('active');
+        }
 
-      scrollCardIntoView(nextCard);
+        scrollCardIntoView(prevCard);
+      });
     });
-  });
 
-  // Forrige dag-knapper
-  prevButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const prevId = btn.getAttribute('data-prev');
-      if (!prevId) return;
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
 
-      const prevCard = document.getElementById(prevId);
-      if (!prevCard) return;
-
-      const body = prevCard.querySelector('.day-body');
-      if (!body) return;
-
-      closeAllExcept(prevCard);
-      prevCard.classList.add('open');
-      body.style.maxHeight = body.scrollHeight + 'px';
-
-      const targetPill = document.querySelector('.pill[data-target="' + prevId + '"]');
-      if (targetPill) {
-        pills.forEach(p => p.classList.remove('active'));
-        targetPill.classList.add('active');
-      }
-
-      scrollCardIntoView(prevCard);
+    document.querySelectorAll('.day-image img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || 'Dagsbilde';
+        lightbox.classList.add('open');
+      });
     });
-  });
 
-  // Lightbox for dagsbilder
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxClose = document.querySelector('.lightbox-close');
-
-  document.querySelectorAll('.day-image img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt || 'Dagsbilde';
-      lightbox.classList.add('open');
-    });
-  });
-
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    lightboxImg.src = '';
-  }
-
-  lightboxClose.addEventListener('click', closeLightbox);
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
-      closeLightbox();
-    }
-  });
-
-  // Service worker-registrering for offline-cache / PWA
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker
-        .register('./sw.js')
-        .catch((err) => {
-          console.log('Service worker registration failed:', err);
-        });
-    });
-  }
-
-  // --- Scrollspy for header-nav (Intro / Rute / Dag for dag / Budsjett / Alt. Italia) ---
-
-  const sectionIds = ['intro', 'route', 'days', 'budget', 'altplan'];
-  const sections = sectionIds
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
-
-  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
-
-  function setActiveNavLink(currentId) {
-    navLinks.forEach(link => {
-      const href = link.getAttribute('href') || '';
-      const targetId = href.startsWith('#') ? href.slice(1) : null;
-
-      if (targetId === currentId) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  }
-
-  function updateActiveNavOnScroll() {
-    if (!sections.length) return;
-
-    const headerHeight = typeof getHeaderOffset === 'function'
-      ? getHeaderOffset()
-      : 80;
-
-    const scrollPos = window.scrollY + headerHeight + 40; // litt under headeren
-
-    const docBottom = window.innerHeight + window.scrollY;
-    const docHeight = document.documentElement.scrollHeight;
-
-    // Hvis vi er helt i bunnen av siden: marker siste seksjon (Alt. Italia)
-    if (docBottom >= docHeight - 4) {
-      setActiveNavLink(sections[sections.length - 1].id);
-      return;
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
     }
 
-    let currentSectionId = sections[0].id;
+    lightboxClose.addEventListener('click', closeLightbox);
 
-    for (const sec of sections) {
-      if (sec.offsetTop <= scrollPos) {
-        currentSectionId = sec.id;
-      } else {
-        break;
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
       }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
+
+    // Service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('./sw.js')
+          .catch((err) => {
+            console.log('Service worker registration failed:', err);
+          });
+      });
     }
 
-    setActiveNavLink(currentSectionId);
-  }
+    // Scrollspy
+    const sectionIds = ['intro', 'route', 'days', 'budget', 'altplan'];
+    const sections = sectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
 
-  // Klikk på nav-lenker: smooth scroll + sett aktiv manuelt
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-      if (!href || !href.startsWith('#')) return;
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
 
-      e.preventDefault();
-      const targetId = href.slice(1);
-      const targetSec = document.getElementById(targetId);
-      if (!targetSec) return;
+    function setActiveNavLink(currentId) {
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href') || '';
+        const targetId = href.startsWith('#') ? href.slice(1) : null;
+
+        if (targetId === currentId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    function updateActiveNavOnScroll() {
+      if (!sections.length) return;
 
       const headerHeight = typeof getHeaderOffset === 'function'
         ? getHeaderOffset()
         : 80;
 
-      const rect = targetSec.getBoundingClientRect();
-      const offset = rect.top + window.scrollY - headerHeight - 12;
+      const scrollPos = window.scrollY + headerHeight + 40;
 
-      window.scrollTo({
-        top: Math.max(offset, 0),
-        behavior: 'smooth'
+      const docBottom = window.innerHeight + window.scrollY;
+      const docHeight = document.documentElement.scrollHeight;
+
+      if (docBottom >= docHeight - 4) {
+        setActiveNavLink(sections[sections.length - 1].id);
+        return;
+      }
+
+      let currentSectionId = sections[0].id;
+
+      for (const sec of sections) {
+        if (sec.offsetTop <= scrollPos) {
+          currentSectionId = sec.id;
+        } else {
+          break;
+        }
+      }
+
+      setActiveNavLink(currentSectionId);
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+
+        e.preventDefault();
+        const targetId = href.slice(1);
+        const targetSec = document.getElementById(targetId);
+        if (!targetSec) return;
+
+        const headerHeight = typeof getHeaderOffset === 'function'
+          ? getHeaderOffset()
+          : 80;
+
+        const rect = targetSec.getBoundingClientRect();
+        const offset = rect.top + window.scrollY - headerHeight - 12;
+
+        window.scrollTo({
+          top: Math.max(offset, 0),
+          behavior: 'smooth'
+        });
+
+        setActiveNavLink(targetId);
       });
-
-      setActiveNavLink(targetId);
     });
-  });
 
-  window.addEventListener('scroll', updateActiveNavOnScroll);
-  window.addEventListener('load', updateActiveNavOnScroll);
-  window.addEventListener('resize', updateActiveNavOnScroll);
-</script>
+    window.addEventListener('scroll', updateActiveNavOnScroll);
+    window.addEventListener('load', updateActiveNavOnScroll);
+    window.addEventListener('resize', updateActiveNavOnScroll);
+
+    // Budsjett dag-for-dag pills
+    const budgetDayPills = document.querySelectorAll('.budget-day-pill');
+    const budgetDayPanels = document.querySelectorAll('.budget-day-panel');
+
+    budgetDayPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const targetId = pill.getAttribute('data-target');
+        const panel = document.getElementById(targetId);
+        if (!panel) return;
+
+        budgetDayPills.forEach(p => p.classList.remove('active'));
+        budgetDayPanels.forEach(p => p.classList.remove('active'));
+
+        pill.classList.add('active');
+        panel.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
