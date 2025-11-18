@@ -1083,21 +1083,20 @@
       <img src="" alt="Dagsbilde" id="lightbox-img">
     </div>
   </div>
-
+  
 <script>
-const dayCards = document.querySelectorAll('.day-card');
-const pills = document.querySelectorAll('.pill[data-target]');
-const nextButtons = document.querySelectorAll('.next-day-btn');
-const prevButtons = document.querySelectorAll('.prev-day-btn');
+  const dayCards = document.querySelectorAll('.day-card');
+  const pills = document.querySelectorAll('.pill[data-target]');
+  const nextButtons = document.querySelectorAll('.next-day-btn');
+  const prevButtons = document.querySelectorAll('.prev-day-btn');
 
-function getHeaderOffset() {
-  const header = document.querySelector('header');
-  if (!header) return 90;
-  const rect = header.getBoundingClientRect();
-  // Litt ekstra luft under headeren
-  return rect.height + 8;
-}
-
+  function getHeaderOffset() {
+    const header = document.querySelector('header');
+    if (!header) return 90;
+    const rect = header.getBoundingClientRect();
+    // Litt ekstra luft under headeren
+    return rect.height + 8;
+  }
 
   function closeAllExcept(cardToKeep) {
     dayCards.forEach(card => {
@@ -1108,19 +1107,21 @@ function getHeaderOffset() {
       }
     });
   }
-function scrollCardIntoView(card) {
-  setTimeout(() => {
-    const headerHeight = getHeaderOffset();
-    const headerEl = card.querySelector('.day-header') || card;
-    const rect = headerEl.getBoundingClientRect();
-    const offset = rect.top + window.scrollY - headerHeight;
 
-    window.scrollTo({
-      top: Math.max(offset, 0),
-      behavior: 'smooth'
-    });
-  }, 200); // litt mer slack for mobil-layouten
-}
+  function scrollCardIntoView(card) {
+    setTimeout(() => {
+      const headerHeight = getHeaderOffset();
+      const headerEl = card.querySelector('.day-header') || card;
+      const rect = headerEl.getBoundingClientRect();
+      const offset = rect.top + window.scrollY - headerHeight;
+
+      window.scrollTo({
+        top: Math.max(offset, 0),
+        behavior: 'smooth'
+      });
+    }, 200); // litt mer slack for mobil-layouten
+  }
+
   // Accordion-logikk for dag-boksene (klikk på header)
   dayCards.forEach(card => {
     const header = card.querySelector('.day-header');
@@ -1309,6 +1310,15 @@ function scrollCardIntoView(card) {
 
     const scrollPos = window.scrollY + headerHeight + 40; // litt under headeren
 
+    const docBottom = window.innerHeight + window.scrollY;
+    const docHeight = document.documentElement.scrollHeight;
+
+    // Hvis vi er helt i bunnen av siden: marker siste seksjon (Alt. Italia)
+    if (docBottom >= docHeight - 4) {
+      setActiveNavLink(sections[sections.length - 1].id);
+      return;
+    }
+
     let currentSectionId = sections[0].id;
 
     for (const sec of sections) {
@@ -1321,6 +1331,33 @@ function scrollCardIntoView(card) {
 
     setActiveNavLink(currentSectionId);
   }
+
+  // Klikk på nav-lenker: smooth scroll + sett aktiv manuelt
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+
+      e.preventDefault();
+      const targetId = href.slice(1);
+      const targetSec = document.getElementById(targetId);
+      if (!targetSec) return;
+
+      const headerHeight = typeof getHeaderOffset === 'function'
+        ? getHeaderOffset()
+        : 80;
+
+      const rect = targetSec.getBoundingClientRect();
+      const offset = rect.top + window.scrollY - headerHeight - 12;
+
+      window.scrollTo({
+        top: Math.max(offset, 0),
+        behavior: 'smooth'
+      });
+
+      setActiveNavLink(targetId);
+    });
+  });
 
   window.addEventListener('scroll', updateActiveNavOnScroll);
   window.addEventListener('load', updateActiveNavOnScroll);
