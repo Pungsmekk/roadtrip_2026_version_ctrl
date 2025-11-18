@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Camp Beer Pressure – Roadtrip 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-alt: #0b0d12;
+      --card: #141824;
+      --accent: #ffb22f;
+      --accent-soft: #ffb22f22;
+      --text: #f4f4f7;
+      --muted: #a2a5b5;
+      --border: #262a3a;
+      --radius: 14px;
+      --shadow: 0 14px 40px rgba(0,0,0,0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #20253a 0, #050608 55%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(5,6,8,0.98), rgba(5,6,8,0.8), transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.7rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffe9a1 0, #ffb22f 40%, #b85b18 80%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 0 20px rgba(255,178,47,0.7);
+    }
+
+    .nav-title-main {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .nav-title-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.9rem;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      border-color: var(--accent-soft);
+      background: rgba(255,178,47,0.06);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+      padding: 1.3rem 1.2rem 3rem;
+    }
+
+    .hero {
+      margin-top: 0.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-text h1 {
+      font-size: clamp(1.8rem, 3.2vw, 2.3rem);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 0.18rem 0.7rem;
+      border: 1px solid var(--accent-soft);
+      background: rgba(0,0,0,0.4);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-pill span {
+      display: inline-flex;
+      padding: 0.08rem 0.4rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.72rem;
+    }
+
+    .hero-text p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 600px;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span strong {
+      color: var(--text);
+    }
+
+    .hero-image {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: #000;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      display: block;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-tag {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.72rem;
+      background: rgba(0,0,0,0.7);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--muted);
+    }
+
+    .section {
+      margin-top: 2.2rem;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 800px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(8,10,18,0.9);
+      color: var(--muted);
+      cursor: pointer;
+      transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.1s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .pill-icon {
+      font-size: 0.9rem;
+    }
+
+    .pill:hover {
+      border-color: var(--accent-soft);
+      background: rgba(255,178,47,0.06);
+      color: var(--text);
+    }
+
+    /* aktiv/valgt pill */
+    .pill.active {
+      border-color: var(--accent-soft);
+      background: rgba(255,178,47,0.14);
+      color: var(--accent);
+      font-weight: 600;
+      transform: translateY(-1px);
+    }
+
+    /* Type-farger (vises når de ikke er active) */
+
+    .pill--travel {
+      border-color: rgba(135, 206, 250, 0.35);
+      background: rgba(135, 206, 250, 0.07);
+    }
+
+    .pill--festival {
+      border-color: rgba(255, 111, 97, 0.4);
+      background: rgba(255, 111, 97, 0.08);
+    }
+
+    .pill--mountain {
+      border-color: rgba(144, 238, 144, 0.4);
+      background: rgba(144, 238, 144, 0.08);
+    }
+
+    .pill--city {
+      border-color: rgba(186, 85, 211, 0.4);
+      background: rgba(186, 85, 211, 0.08);
+    }
+
+    .pill--home {
+      border-color: rgba(255, 215, 0, 0.4);
+      background: rgba(255, 215, 0, 0.08);
+    }
+
+    .accent-box {
+      border-radius: var(--radius);
+      border: 1px solid var(--accent-soft);
+      background: linear-gradient(to right, rgba(255,178,47,0.08), transparent);
+      padding: 0.7rem 0.9rem;
+      font-size: 0.85rem;
+      margin-top: 0.7rem;
+    }
+
+    .accent-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.18rem;
+    }
+
+    .budget-grid {
+      margin-top: 0.8rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .budget-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: #0a0c13;
+      padding: 0.7rem 0.8rem;
+      font-size: 0.85rem;
+    }
+
+    .budget-card strong {
+      color: var(--text);
+    }
+
+    .budget-card span {
+      color: var(--muted);
+      font-size: 0.8rem;
+      display: block;
+    }
+
+    /* Dag for dag – accordion */
+
+    .day-list {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.7rem;
+    }
+
+    .day-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #202334, #111320);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .day-header {
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: inherit;
+      padding: 0.65rem 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      cursor: pointer;
+    }
+
+    .day-header-main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.1rem;
+    }
+
+    .day-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .day-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .day-chevron {
+      font-size: 0.8rem;
+      transition: transform 0.2s ease;
+      color: var(--muted);
+    }
+
+    .day-card.open .day-chevron {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+
+    .day-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding: 0 0.9rem;
+    }
+
+    .day-card.open .day-body {
+      padding-bottom: 0.65rem;
+    }
+
+    .day-body-inner {
+      padding-top: 0.55rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .day-body-inner p {
+      margin-bottom: 0.35rem;
+    }
+
+    .day-body-inner ul {
+      margin-left: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .day-body-inner li {
+      margin-bottom: 0.18rem;
+    }
+
+    .day-body-inner .maps-link {
+      font-size: 0.8rem;
+      margin-top: 0.1rem;
+    }
+
+    .day-image {
+      margin-bottom: 0.4rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #000;
+    }
+
+    .day-image img {
+      width: 100%;
+      display: block;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* Lightbox for dagsbilder */
+
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 1rem;
+    }
+
+    .lightbox-backdrop.open {
+      display: flex;
+    }
+
+    .lightbox-img-wrapper {
+      max-width: 90vw;
+      max-height: 90vh;
+      position: relative;
+    }
+
+    .lightbox-img-wrapper img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.4);
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* Neste dag-knapp */
+
+    .next-day-btn {
+      margin-top: 0.3rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(255,178,47,0.08);
+      color: var(--accent);
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .next-day-btn:hover {
+      background: rgba(255,178,47,0.16);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1rem 1.2rem 2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: #050608;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="nav-logo">BP</div>
+        <div>
+          <div class="nav-title-main">Camp Beer Pressure</div>
+          <div class="nav-title-sub">Roadtrip 2026</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#intro">Intro</a>
+        <a href="#route">Rute</a>
+        <a href="#days">Dag for dag</a>
+        <a href="#budget">Budsjett</a>
+        <a href="#altplan">Alt. Italia</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="intro">
+      <div class="hero-text">
+        <div class="hero-pill">
+          <span>2026</span> Nova Rock → Polen → Hjem
+        </div>
+        <h1>Beer Pressure Roadtrip 2026</h1>
+        <p>
+          Forslag til festival-roadtrip for Kenneth, Kjetil, Aslak og Sindre:
+          Nova Rock, fjell og byliv i Polen, og mulighet for alternativ rute via Italia.
+          Dette er et <strong>forslag</strong>, ikke en låst plan.
+        </p>
+        <div class="hero-meta">
+          <span><strong>Datoer:</strong> ca. 8.–21. juni</span>
+          <span><strong>Hovedmål:</strong> Nova Rock + sightseeing i Polen</span>
+          <span><strong>Bil:</strong> Foreløpig ukjent / oppgraderes senere</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Bytt til ditt eget header-bilde -->
+        <img src="images/camp-beer-pressure-2026-banner.png" alt="Camp Beer Pressure 2026">
+        <div class="hero-tag">Camp Beer Pressure 2026 – Road Mode</div>
+      </div>
+    </section>
+
+    <section class="section" id="route">
+      <h2>Mini-ruteoversikt</h2>
+      <p>
+        Grov plan: Norge → Danmark → Tyskland → Tsjekkia → Nova Rock (Østerrike/Ungarn) →
+        Zakopane → Kraków → Wieliczka → Lublin → Warszawa → Świnoujście → Ystad → Göteborg → Notodden.
+      </p>
+      <div class="pill-row">
+        <span class="pill pill--travel" data-target="day-1">
+          <span class="pill-icon">🚗</span>
+          Dag 1 – Hamburg
+        </span>
+
+        <span class="pill pill--travel" data-target="day-2">
+          <span class="pill-icon">🚗</span>
+          Dag 2 – Praha
+        </span>
+
+        <span class="pill pill--travel" data-target="day-3">
+          <span class="pill-icon">🚗</span>
+          Dag 3 – Ankomst Nova Rock
+        </span>
+
+        <span class="pill pill--festival" data-target="day-novarock">
+          <span class="pill-icon">🎪</span>
+          Dag 4–7 – Nova Rock
+        </span>
+
+        <span class="pill pill--mountain" data-target="day-zakopane">
+          <span class="pill-icon">⛰️</span>
+          Dag 8 – Zakopane
+        </span>
+
+        <span class="pill pill--city" data-target="day-krakow">
+          <span class="pill-icon">🏙️</span>
+          Dag 9 – Kraków &amp; Wieliczka
+        </span>
+
+        <span class="pill pill--city" data-target="day-lublin">
+          <span class="pill-icon">🏙️</span>
+          Dag 10 – Lublin
+        </span>
+
+        <span class="pill pill--festival" data-target="day-warszawa">
+          <span class="pill-icon">🎵</span>
+          Dag 11–13 – Warszawa
+        </span>
+
+        <span class="pill pill--home" data-target="day-home">
+          <span class="pill-icon">🏁</span>
+          Dag 14 – Hjemreise
+        </span>
+      </div>
+    </section>
+
+    <section class="section" id="days">
+      <h2>Dag for dag – klikk for detaljer</h2>
+      <p>Klikk på en dag for å se plan, ca. pris og kart. Bilder vises når boksen åpnes.</p>
+
+      <div class="day-list">
+        <!-- Dag 1 -->
+        <article class="day-card" id="day-1">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 1 – Notodden → Larvik → Hirtshals → Hamburg</div>
+              <div class="day-meta">Ca. 7–8 t + ferge • Første kveld i Hamburg</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <!-- Bytt filnavn til ditt eget bilde -->
+                <img src="images/day1-hamburg.jpg" alt="Dag 1 – Hamburg">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Avreise fra Notodden på morgenen.</li>
+                <li>Ferge fra Larvik til Hirtshals.</li>
+                <li>Kjøring gjennom Danmark til Hamburg.</li>
+                <li>Innsjekk, enkel middag og et par øl.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers, ekskl. fergebillett):</strong>  
+                Overnatting ~800–900 kr • Mat/øl ~400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Notodden/Larvik+ferjekai/" target="_blank">Notodden → Larvik</a>,
+                <a href="https://www.google.com/maps/dir/Hirtshals/Hamburg/" target="_blank">Hirtshals → Hamburg</a>
+              </p>
+              <button type="button" class="next-day-btn" data-next="day-2">
+                Neste dag → Dag 2 – Praha
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dag 2 -->
+        <article class="day-card" id="day-2">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 2 – Hamburg → Praha</div>
+              <div class="day-meta">Ca. 6–7 t • Kveld i Praha</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day2-praha.jpg" alt="Dag 2 – Praha">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Kjøring ned gjennom Tyskland og Tsjekkia.</li>
+                <li>Ankomst Praha på ettermiddagen/tidlig kveld.</li>
+                <li>Kveld i gamlebyen, mat og øl.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Overnatting ~600–700 kr • Mat/øl ~400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Hamburg/Praha/" target="_blank">Hamburg → Praha</a>
+              </p>
+              <button type="button" class="next-day-btn" data-next="day-3">
+                Neste dag → Dag 3 – Ankomst Nova Rock
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dag 3 -->
+        <article class="day-card" id="day-3">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 3 – Praha → Nova Rock (Nickelsdorf)</div>
+              <div class="day-meta">Ca. 3,5–4 t • Ankomst camp</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day3-novarock-arrival.jpg" alt="Dag 3 – Nova Rock camp">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Tidlig avgang fra Praha.</li>
+                <li>Handle inn det siste på veien.</li>
+                <li>Ankomst Nova Rock-området på ettermiddagen/kvelden.</li>
+                <li>Sette opp camp og rolig start.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Mest mat/øl denne dagen ~400–500 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Prague/Nickelsdorf+Austria/" target="_blank">Praha → Nickelsdorf</a>
+              </p>
+              <button type="button" class="next-day-btn" data-next="day-novarock">
+                Neste dag → Dag 4–7 – Nova Rock
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dag 4–7 – Nova Rock -->
+        <article class="day-card" id="day-novarock">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 4–7 – Nova Rock</div>
+              <div class="day-meta">4 dager • Full festivalmodus</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day4-7-novarock.jpg" alt="Dag 4–7 – Nova Rock">
+              </div>
+              <p><strong>Plan:</strong> Camp, konserter, øl, minimalt med bil.</p>
+              <p><strong>Ca. kost (per pers, pr. dag):</strong>  
+                1 200–1 500 kr (mat + drikke, 12–15 halvlitere typisk).
+              </p>
+              <p>Totalt 4 dager: ca. 4 800–6 000 kr per pers (uten billetter).</p>
+              <button type="button" class="next-day-btn" data-next="day-zakopane">
+                Neste dag → Dag 8 – Zakopane
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dag 8 – Zakopane -->
+        <article class="day-card" id="day-zakopane">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 8 – Nova Rock → Zakopane</div>
+              <div class="day-meta">Ca. 4,5–5 t • Fjell og roligere tempo</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day8-zakopane.jpg" alt="Dag 8 – Zakopane">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Pakk ned camp, kjør gjennom Slovakia/Polen.</li>
+                <li>Innsjekk i Zakopane.</li>
+                <li>Mat, øl og evt. kveldstur.</li>
+              </ul>
+              <p><strong>Severdigheter:</strong>  
+                Gubałówka fjellheis/utsikt ~150 kr per pers.
+              </p>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Overnatting ~600–700 kr • Mat/øl ~400 kr • Severdigheter ~150 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Nickelsdorf/Zakopane/" target="_blank">Nova Rock → Zakopane</a>
+              </p>
+              <button type="button" class="next-day-btn" data-next="day-krakow">
+                Neste dag → Dag 9 – Kraków &amp; Wieliczka
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dag 9 – Kraków/Wieliczka -->
+        <article class="day-card" id="day-krakow">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 9 – Zakopane → Kraków → Wieliczka → Kraków</div>
+              <div class="day-meta">Ca. 1,5 t + 20 min • By + gruve</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day9-krakow-wieliczka.jpg" alt="Dag 9 – Kraków og Wieliczka">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Kjør fra Zakopane til Kraków, sjekke inn.</li>
+                <li>Videre til Wieliczka saltgruve.</li>
+                <li>Kveld i Kazimierz-området med mat og øl.</li>
+              </ul>
+              <p><strong>Severdigheter:</strong>  
+                Wieliczka saltgruve ~350–450 kr per pers.
+              </p>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Overnatting ~600–700 kr • Mat/øl ~400 kr • Severdigheter ~400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Zakopane/Kraków/" target="_blank">Zakopane → Kraków</a>,
+                <a href="https://www.google.com/maps/dir/Kraków/Wieliczka+Salt+Mine/" target="_blank">Kraków → Wieliczka</a>
+              </p>
+              <button type="button" class="next-day-btn" data-next="day-lublin">
+                Neste dag → Dag 10 – Lublin
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dag 10 – Lublin -->
+        <article class="day-card" id="day-lublin">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 10 – Kraków → Lublin</div>
+              <div class="day-meta">Ca. 3 t • Rolig overgangsdag</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day10-lublin.jpg" alt="Dag 10 – Lublin">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Kjøring til Lublin.</li>
+                <li>Innsjekk og rusling i gamlebyen.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Overnatting ~500–600 kr • Mat/øl ~350–400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Kraków/Lublin/" target="_blank">Kraków → Lublin</a>
+              </p>
+              <button type="button" class="next-day-btn" data-next="day-warszawa">
+                Neste dag → Dag 11 – Warszawa
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dag 11 – Warszawa -->
+        <article class="day-card" id="day-warszawa">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 11 – Lublin → Warszawa</div>
+              <div class="day-meta">Ca. 1,5–2 t • Inn til hovedstaden</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day11-warszawa.jpg" alt="Dag 11 – Warszawa">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Kort kjøreøkt til Warszawa.</li>
+                <li>Sjekk inn tidlig.</li>
+                <li>Wisła-barer, gamlebyen, mat, chill.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Overnatting ~700–800 kr • Mat/øl ~400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Lublin/Warszawa/" target="_blank">Lublin → Warszawa</a>
+              </p>
+              <button type="button" class="next-day-btn" data-next="day-12-13">
+                Neste dag → Dag 12–13 – Warszawa / festival
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dag 12–13 – Warszawa/festival -->
+        <article class="day-card" id="day-12-13">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 12–13 – Warszawa / Summer Punch</div>
+              <div class="day-meta">2 dager • Festival / byliv</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day12-13-warszawa-festival.jpg" alt="Dag 12–13 – Warszawa / festival">
+              </div>
+              <p><strong>Plan:</strong> Enten Summer Punch-festival, eller to dager med byliv, barer og sightseeing.</p>
+              <p><strong>Ca. kost (per pers, pr. dag):</strong>  
+                ~1 200–1 500 kr (mat + drikke, festivalnivå).
+              </p>
+              <button type="button" class="next-day-btn" data-next="day-home">
+                Neste dag → Dag 14 – Hjemreise
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dag 14 – hjem -->
+        <article class="day-card" id="day-home">
+          <button class="day-header" type="button">
+            <div class="day-header-main">
+              <div class="day-title">Dag 14 – Warszawa → Świnoujście → Ystad → Göteborg → Notodden</div>
+              <div class="day-meta">Ca. 10–12 t kjøring • Ferge + hjem</div>
+            </div>
+            <div class="day-chevron">▼</div>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <div class="day-image">
+                <img src="images/day14-home.jpg" alt="Dag 14 – Hjem via Sverige">
+              </div>
+              <p><strong>Plan:</strong></p>
+              <ul>
+                <li>Kjøring mot kysten og Świnoujście.</li>
+                <li>Nattferge til Sverige.</li>
+                <li>Ystad → Göteborg langs kysten.</li>
+                <li>Siste strekk hjem til Notodden.</li>
+              </ul>
+              <p><strong>Ca. kost (per pers):</strong>  
+                Andel ferge/kahytt ~750 kr • Mat/øl ~400 kr.
+              </p>
+              <p class="maps-link">
+                Maps:
+                <a href="https://www.google.com/maps/dir/Warszawa/Świnoujście/" target="_blank">Warszawa → Świnoujście</a>,
+                <a href="https://www.google.com/maps/dir/Ystad/Göteborg/" target="_blank">Ystad → Göteborg</a>,
+                <a href="https://www.google.com/maps/dir/Göteborg/Notodden/" target="_blank">Göteborg → Notodden</a>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="budget">
+      <h2>Budsjett – grovt overslag per pers (uten billetter)</h2>
+      <p>
+        Tallene under er et realistisk, men ikke konservativt anslag – spesielt på drikking på festival.
+      </p>
+      <div class="budget-grid">
+        <div class="budget-card">
+          <strong>Overnatting</strong>
+          <span>Ca. 5 950 kr per person</span>
+          <p>Basert på ca. 9 netter, 2 dobbeltrom, moderate hoteller og en nattferge med lugar.</p>
+        </div>
+        <div class="budget-card">
+          <strong>Drivstoff</strong>
+          <span>Ca. 1 350 kr per person</span>
+          <p>Ca. 4 500 km total, 0,6 l/mil og rundt 20 kr literen.</p>
+        </div>
+        <div class="budget-card">
+          <strong>Mat &amp; drikke</strong>
+          <span>Ca. 11 000 kr per person</span>
+          <p>
+            Festivaldager: 6 dager × 1 200–1 500 kr (12–15 halvlitere + mat).  
+            Andre dager: 8 dager × ~400 kr.  
+            Totalt rundt 11 000 kr per pers.
+          </p>
+        </div>
+        <div class="budget-card">
+          <strong>Severdigheter</strong>
+          <span>Ca. 800 kr per person</span>
+          <p>Wieliczka, fjellheis i Zakopane og litt ekstra småting.</p>
+        </div>
+      </div>
+
+      <div class="accent-box">
+        <div class="accent-label">Anbefalt total</div>
+        <p>
+          Sum havner da rundt <strong>ca. 19 500 kr per person</strong>.  
+          Med 10–15 % slingringsmonn (ekstra øl, mat, shopping, litt bedre hotell):
+          <strong>ca. 22 000 kr per person</strong> er et komfortabelt nivå – igjen uten festivalbilletter.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="altplan">
+      <h2>Alternativ plan – Italia-retning</h2>
+      <p>
+        Hvis Polen / Summer Punch droppes, kan dere kjøre en mer episk naturrute via Alpene og Italia.
+        Dette er ikke detaljplanlagt, men en skisse:
+      </p>
+      <div class="card" style="margin-top:0.7rem;">
+        <h3>Skisse: Nova Rock → Italia</h3>
+        <ul>
+          <li>Nova Rock → Salzburg</li>
+          <li>Grossglockner High Alpine Road</li>
+          <li>Dolomittene (f.eks. Cortina d’Ampezzo)</li>
+          <li>Venezia (en dagstur, bo utenfor byen)</li>
+          <li>Gardasjøen eller Como for bading og chill</li>
+          <li>Nord-Italia → Sveits → Tyskland → Sverige → Norge</li>
+        </ul>
+        <p style="margin-top:0.4rem;">
+          Fordeler: mer spektakulær natur, fjellpass og italiensk mat.  
+          Ulemper: litt mer kjøring, litt dyrere, ingen Polen-delen.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Camp Beer Pressure – Roadtrip 2026 • Dette er et forslag, ikke en fasit. Endringer oppmuntres.
+  </footer>
+
+  <!-- Lightbox-overlay -->
+  <div class="lightbox-backdrop" id="lightbox">
+    <div class="lightbox-img-wrapper">
+      <button class="lightbox-close" type="button" aria-label="Lukk">&times;</button>
+      <img src="" alt="Dagsbilde" id="lightbox-img">
+    </div>
+  </div>
+
+  <script>
+    const dayCards = document.querySelectorAll('.day-card');
+
+    function closeAllExcept(cardToKeep) {
+      dayCards.forEach(card => {
+        if (card !== cardToKeep) {
+          card.classList.remove('open');
+          const body = card.querySelector('.day-body');
+          if (body) body.style.maxHeight = null;
+        }
+      });
+    }
+
+    // Accordion-logikk for dag-boksene
+    dayCards.forEach(card => {
+      const header = card.querySelector('.day-header');
+      const body = card.querySelector('.day-body');
+
+      header.addEventListener('click', () => {
+        const isOpen = card.classList.contains('open');
+
+        if (!isOpen) {
+          // åpne valgt dag
+          closeAllExcept(card);
+          card.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        } else {
+          // lukke dag: fjern aktiv pill + scroll til topp
+          card.classList.remove('open');
+          body.style.maxHeight = null;
+
+          document.querySelectorAll('.pill[data-target]').forEach(p => {
+            p.classList.remove('active');
+          });
+
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Klikk på mini-rute-pill -> scroll + åpne riktig dag + marker valgt
+    const pills = document.querySelectorAll('.pill[data-target]');
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const targetId = pill.getAttribute('data-target');
+        const card = document.getElementById(targetId);
+        if (!card) return;
+
+        const body = card.querySelector('.day-body');
+        if (!body) return;
+
+        // marker aktiv pill
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        // åpne denne, lukk andre
+        const isOpen = card.classList.contains('open');
+        if (!isOpen) {
+          closeAllExcept(card);
+          card.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+
+        // liten delay så layout rekker å oppdatere før vi scroller
+        const headerOffset = 90;
+        setTimeout(() => {
+          const rect = card.getBoundingClientRect();
+          const offset = rect.top + window.scrollY - headerOffset;
+
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth'
+          });
+        }, 80);
+      });
+    });
+
+    // Neste dag-knapper
+    const nextButtons = document.querySelectorAll('.next-day-btn');
+
+    nextButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const nextId = btn.getAttribute('data-next');
+        if (!nextId) return;
+
+        const nextCard = document.getElementById(nextId);
+        if (!nextCard) return;
+
+        const body = nextCard.querySelector('.day-body');
+        if (!body) return;
+
+        closeAllExcept(nextCard);
+        nextCard.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+
+        const targetPill = document.querySelector('.pill[data-target="' + nextId + '"]');
+        if (targetPill) {
+          pills.forEach(p => p.classList.remove('active'));
+          targetPill.classList.add('active');
+        }
+
+        const headerOffset = 90;
+        setTimeout(() => {
+          const rect = nextCard.getBoundingClientRect();
+          const offset = rect.top + window.scrollY - headerOffset;
+
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth'
+          });
+        }, 80);
+      });
+    });
+
+    // Lightbox for dagsbilder
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.day-image img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || 'Dagsbilde';
+        lightbox.classList.add('open');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
