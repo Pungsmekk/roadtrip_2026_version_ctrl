@@ -113,7 +113,15 @@
       color: var(--text);
       text-decoration: none;
     }
-
+    
+    .nav-links a.active {
+  border-color: var(--accent-soft);
+  background: rgba(255,178,47,0.12);
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+ 
     main {
       max-width: 1100px;
       margin: 0 auto 4rem;
@@ -1063,9 +1071,10 @@
     </section>
   </main>
 
-  <footer>
-    Camp Beer Pressure – Roadtrip 2026 • Dette er et forslag, ikke en fasit. Endringer oppmuntres.
-  </footer>
+<footer>
+  Camp Beer Pressure – Roadtrip 2026 • Dette er et forslag, ikke en fasit. Endringer oppmuntres.<br />
+  <span style="font-size:0.7rem; color:#666;">Versjon 1.0 – oppdatert 18.11.2025</span>
+</footer>
 
   <!-- Lightbox-overlay -->
   <div class="lightbox-backdrop" id="lightbox">
@@ -1268,6 +1277,54 @@ function scrollCardIntoView(card) {
         });
     });
   }
+
+  // --- Scrollspy for header-nav (Intro / Rute / Dag for dag / Budsjett / Alt. Italia) ---
+
+  const sectionIds = ['intro', 'route', 'days', 'budget', 'altplan'];
+  const sections = sectionIds
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+
+  function setActiveNavLink(currentId) {
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href') || '';
+      const targetId = href.startsWith('#') ? href.slice(1) : null;
+
+      if (targetId === currentId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  function updateActiveNavOnScroll() {
+    if (!sections.length) return;
+
+    const headerHeight = typeof getHeaderOffset === 'function'
+      ? getHeaderOffset()
+      : 80;
+
+    const scrollPos = window.scrollY + headerHeight + 40; // litt under headeren
+
+    let currentSectionId = sections[0].id;
+
+    for (const sec of sections) {
+      if (sec.offsetTop <= scrollPos) {
+        currentSectionId = sec.id;
+      } else {
+        break;
+      }
+    }
+
+    setActiveNavLink(currentSectionId);
+  }
+
+  window.addEventListener('scroll', updateActiveNavOnScroll);
+  window.addEventListener('load', updateActiveNavOnScroll);
+  window.addEventListener('resize', updateActiveNavOnScroll);
 </script>
 </body>
 </html>
