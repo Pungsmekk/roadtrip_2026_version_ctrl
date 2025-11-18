@@ -1091,19 +1091,19 @@
       }
     });
   }
-
   function scrollCardIntoView(card) {
     setTimeout(() => {
-      const rect = card.getBoundingClientRect();
+      // Scroll til selve headeren på dagen, ikke hele kortet
+      const headerEl = card.querySelector('.day-header') || card;
+      const rect = headerEl.getBoundingClientRect();
       const offset = rect.top + window.scrollY - headerOffset;
 
       window.scrollTo({
-        top: offset,
+        top: Math.max(offset, 0),
         behavior: 'smooth'
       });
-    }, 80);
+    }, 150); // litt ekstra delay så maxHeight/layout rekker å oppdatere
   }
-
   // Accordion-logikk for dag-boksene (klikk på header)
   dayCards.forEach(card => {
     const header = card.querySelector('.day-header');
