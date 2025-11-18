@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cbp-roadtrip-2026-v1';
+const CACHE_NAME = 'cbp-roadtrip-2026-v2';
 
 const ASSETS = [
   './',
