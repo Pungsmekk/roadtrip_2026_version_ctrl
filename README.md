@@ -13,9 +13,6 @@ Når GitHub Pages er ferdig med å publisere:
 
 > https://pungsmekk.github.io/roadtrip_2026_version_ctrl/
 
-Hvis du får 404 en stund etter at Pages er aktivert, sjekk:
-- Repo → **Settings → Pages** for status
-- At `index.html` ligger i rotmappa på `main`-branch
 
 ---
 
