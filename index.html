@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <title>Camp Beer Pressure – Roadtrip 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050608" />
+  <link rel="manifest" href="manifest.webmanifest" />
   <style>
     :root {
       --bg: #050608;
@@ -1179,6 +1181,20 @@
         closeLightbox();
       }
     });
+
+      // ... eksisterende JS over her ...
+
+  // Service worker-registrering for offline-cache / PWA
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('./sw.js')
+        .catch((err) => {
+          console.log('Service worker registration failed:', err);
+        });
+    });
+  }
+
   </script>
 </body>
 </html>
