@@ -35,6 +35,8 @@ Interaktiv, statisk nettside for å planlegge **Camp Beer Pressure** roadtrip 20
 
 ## Kjøre
 
-- Lokalt: åpne `index.html` i nettleser  
-- Prod:  
+- Lokalt:
+  - Start en enkel server fra repo-roten slik at service worker kan registreres, f.eks. `npx serve` eller `python -m http.server 4173`.
+  - Åpne deretter `http://localhost:4173/index.html` i nettleseren. Åpning direkte fra filsystemet (`file://`) hopper over PWA-funksjonene.
+- Prod:
   https://pungsmekk.github.io/roadtrip_2026_version_ctrl/

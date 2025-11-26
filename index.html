@@ -1284,11 +1284,11 @@
 
         <div class="budget-card">
           <strong>Alkohol til camp</strong>
-          <span>Ca. 700–1 000 kr per person</span>
-          <p>
-            1–2 flasker sprit, mixers (cola/tonic/energidrikk) og 1–2 kasser øl
-            før festivalprisene tar over.
-          </p>
+            <span>Ca. 700–1 000 kr per person</span>
+            <p>
+              1–2 flasker sprit, mixers (cola/tonic/energidrikker) og 1–2 kasser øl
+              før festivalprisene tar over.
+            </p>
         </div>
 
         <div class="budget-card">
@@ -1828,6 +1828,16 @@
       });
     }
 
+    function updateOpenCardHeights() {
+      dayCards.forEach(card => {
+        if (!card.classList.contains('open')) return;
+        const body = card.querySelector('.day-body');
+        if (body) {
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      });
+    }
+
     function scrollCardIntoView(card) {
       setTimeout(() => {
         const headerHeight = getHeaderOffset();
@@ -1940,8 +1950,14 @@
       });
     });
 
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(updateOpenCardHeights, 150);
+    });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.querySelector('.lightbox-close');
 
